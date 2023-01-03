@@ -20,7 +20,7 @@ function Login() {
     }
   };
   return (
-    <div className='grid mt-60px'>
+    <div className='grid mt-60px bg-base-200'>
       {
         error === true && (
           <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
@@ -31,7 +31,7 @@ function Login() {
         )
       }
       <div className="hero-content flex-col lg:flex-row-reverse justify-around ">
-        <div className="hero-content">
+        <div className="hero-content ">
           < div className="card flex-shrink-0 w-full max-w-sm shadow-2xl p-2 bg-base-200 place-self-center" >
             <div className="card-header">
               <h1 className="text-5xl font-bold  px-2">Login🔐</h1>
