@@ -1,34 +1,61 @@
 import { useState, useContext } from 'react';
 import { useForm } from "react-hook-form";
+// import { Context } from '../context/Context';
+import login from "../images/Login.png";
+import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { Context } from '../context/Context';
-import login from "../images/Login.png";
+
+
+
 function Login() {
   const { register, formState: { errors }, handleSubmit } = useForm();
   const [error, setError] = useState(false);
   const { dispatch } = useContext(Context);
 
-  const onSubmit = async (data) => {
-    try {
-      const res = await axios.post('/auth/login', data);
-      dispatch({ type: 'LOGIN_SUCCESS', payload: res?.data });
-      window.location.replace(`/profile/${res.data._id}`)
-    } catch (error) {
-      dispatch({ type: 'LOGIN_FAILURE' });
-      setError(true);
-      setTimeout(() => setError(false), 3000);
+  const loginMutation = useMutation({
+    mutationFn: async (data) => {
+      return axios
+        .post('https://udhamini-api.azurewebsites.net/api/auth/userLogin', data).then(
+          (response) => {
+            dispatch({ type: 'LOGIN_SUCCESS', payload: response?.data })
+            return response.data;
+          }
+        ).catch(
+          (error) => {
+            dispatch({ type: 'LOGIN_FAILURE' });
+            setError(true);
+            setTimeout(() => setError(false), 3000);
+          }
+        )
     }
-  };
+
+  })
+  const onSubmit = (data) => {
+    loginMutation.mutate(data);
+  }
+
+
+
   return (
     <div className='grid mt-60px bg-base-200'>
       {
-        error === true && (
+        loginMutation.isLoading ? (
           <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
             <div><span className='text-2xl'>😒</span>
-              <span>Error! Wrong credentials</span>
+              <span>Loading!!!</span>
             </div>
           </div >
+        ) : (
+          error ? (
+            <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
+              <div><span className='text-2xl'>😒</span>
+                <span>Error! Wrong credentials</span>
+              </div>
+            </div >
+          ) : (loginMutation.isSuccess && (window.location.replace(`/profile`)))
         )
+
       }
       <div className="hero-content flex-col lg:flex-row-reverse justify-around ">
         <div className="hero-content ">
@@ -37,7 +64,7 @@ function Login() {
               <h1 className="text-5xl font-bold  px-2">Login🔐</h1>
             </div>
             <div className="card-body">
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form onSubmit={handleSubmit(onSubmit)} >
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text text-xl">Username</span>
