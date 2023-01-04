@@ -18,7 +18,10 @@ function Login() {
       return axios
         .post('https://udhamini-api.azurewebsites.net/api/auth/userLogin', data).then(
           (response) => {
-            dispatch({ type: 'LOGIN_SUCCESS', payload: response?.data })
+            if (response.data.accessToken) {
+              dispatch({ type: 'LOGIN_SUCCESS', payload: response?.data });
+              window.location.replace(`/profile`);
+            }
             return response.data;
           }
         ).catch(
@@ -47,13 +50,13 @@ function Login() {
             </div>
           </div >
         ) : (
-          error ? (
+          error && (
             <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
               <div><span className='text-2xl'>😒</span>
                 <span>Error! Wrong credentials</span>
               </div>
             </div >
-          ) : (loginMutation.isSuccess && (window.location.replace(`/profile`)))
+          )
         )
 
       }
