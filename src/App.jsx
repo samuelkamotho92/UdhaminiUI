@@ -10,6 +10,8 @@ import Login from './pages/Login';
 import About from './pages/About';
 import Profile from './pages/Profile';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Premium from './components/Premium';
+import Scholarship from './components/Scholarship';
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="about" element={<About />} />
             <Route path="profile" element={user ? <Profile /> : <Home />} />
+            <Route path="profile/premium" element={user ? <Premium /> : <Home />} />
+            <Route path="profile/scholarships" element={user ? <Scholarship /> : <Home />} />
             <Route path="*"
               element={
                 <div className='shadow-lg grid place-self-center mt-20 py-20 w-3/4 mx-auto text-white  justify-center text-center'>
