@@ -1,6 +1,53 @@
-@media (max-width: 375px) {
+@media (max-width: 375px),(max-width: 514px) {
     .userprofile {
         display: none;
         flex-direction: column;
     }
+    .register{
+        font-size: x-large;
+}
+.loginImg{
+    max-width: 100%;     
+    display: none;   
+}
+.resetImg{
+    max-width: 100%;     
+    display: none;   
+}
+.registerHeader{
+    font-size: x-large;
   }
+  .loginPage{
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .resetPage{
+    justify-content: center;
+    font-size: larger;
+    /* margin: 0 auto;
+    width: 100%; */
+  }
+  .loginHeader>h1{
+     font-size: xx-large;
+  }
+  .footer {
+    justify-content: center;
+  }
+  .footerIcon{
+    justify-self: center;
+  }
+  .hero-content >img{
+    max-width: 100%;
+    
+  }  
+  .hero1 >h1{
+    font-size: large;
+  }
+  .hero2> h1{
+    font-size: xx-large; 
+  }
+  /* .arrows1{
+    top: 1/8;
+  }*/
+ } 

@@ -9,18 +9,18 @@ function Home() {
   return (
     <div className='justify-center align-center h-full'>
       <div className="carousel w-full h-full">
-        <div id="1" className="carousel-item relative w-full">
-          <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+        <div id="1" className="carousel-item relative w-full ">
+          <div className="hero min-h-screen bg-base-200 ">
+            <div className="hero-content flex-col lg:flex-row-reverse ">
               <img src={slider2} className="max-w-xl rounded-lg shadow-2xl" alt='no pic' />
-              <div>
+              <div className='hero1'>
                 <h1 className="text-5xl font-bold">Welcome to Udhamini Community</h1>
-                <p className="py-6">Udhamini is a platform where students can get access to huge collection of Scolarships and apply for them. Thousands of students have benifited, and we are grand your here...</p>
+                <p className="py-6">Udhamini is a platform where students can get  access to huge collection of Scolarships and apply for them. Thousands of students have benifited, and we are grand your here...</p>
                 <button className="btn btn-outline btn-warning"><Link to="/register">Register To Get Started</Link></button>
               </div>
             </div>
           </div>
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 arrows">
             <a href="#2" className="btn btn-circle text-3xl">👈</a>
             <a href="#2" className="btn btn-circle text-3xl">👉</a>
           </div>
@@ -29,20 +29,20 @@ function Home() {
           <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
               <img src={slider3} className="max-w-xl rounded-lg shadow-2xl" alt='no pic' />
-              <div>
+              <div className='hero2'>
                 <h1 className="text-5xl font-bold">Our Goals 🤝</h1>
                 <div className="py-6 text-xl">
                   <ul>
-                    <li>➡️Help needy students</li>
-                    <li>➡️Bring students' dreams closer</li>
-                    <li>➡️Create community a thriving community</li>
+                    <li>➡️ Help needy students</li>
+                    <li>➡️ Bring students' dreams closer</li>
+                    <li>➡️ Create community a thriving community</li>
                   </ul>
                 </div>
                 <button className="btn btn-info btn-outline"><Link to="/register">Register To Get Started</Link></button>
               </div>
             </div>
           </div>
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 arrows1">
             <a href="#1" className="btn btn-circle text-3xl">👈</a>
             <a href="#3" className="btn btn-circle text-3xl">👉</a>
           </div>
@@ -58,7 +58,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 arrows">
             <a href="#2" className="btn btn-circle text-3xl">👈</a>
             <a href="#4" className="btn btn-circle text-3xl">👉</a>
           </div>
@@ -74,7 +74,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 arrows">
             <a href="#3" className="btn btn-circle text-3xl">👈</a>
             <a href="#1" className="btn btn-circle text-3xl">👉</a>
           </div>

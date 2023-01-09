@@ -61,7 +61,7 @@ function Register() {
         )
       }
       <div className="hero-content">
-        <h1 className="text-5xl font-bold xs:text-4xl">✍️Register now!</h1>
+        <h1 className="text-5xl font-bold xs:text-4xl registerHeader">✍️  Register now!</h1>
       </div>
       <div className="hero  bg-base-200">
         <form onSubmit={handleSubmit(onSubmit)}>
