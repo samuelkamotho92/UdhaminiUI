@@ -71,7 +71,7 @@ function ResetPassword() {
               <form onSubmit={handleSubmit(onSubmit)} >
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-xl">email</span>
+                    <span className="label-text text-3xl">Email</span>
                   </label>
                   <input type="email" {...register("email", { required: true })} placeholder="Enter Email" className="input input-warning input-lg input-bordered" />
                   {errors.email?.type === 'required' && <p className="label-text-alt text-red-400 pt-2">email is required 😶</p>}
