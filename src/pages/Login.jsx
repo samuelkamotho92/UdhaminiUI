@@ -6,7 +6,7 @@ import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { Context } from '../context/Context';
 import { Link } from 'react-router-dom';
-
+import { ThreeDots } from 'react-loading-icons'
 
 
 function Login() {
@@ -44,21 +44,23 @@ function Login() {
   return (
     <div className='grid mt-60px bg-base-200 loginPage'>
       {
-        loginMutation.isLoading ? (
-          <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
-            <div><span className='text-2xl'>😒</span>
-              <span>Loading!!!</span>
-            </div>
-          </div >
-        ) : (
-          error && (
-            <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
-              <div><span className='text-2xl'>😒</span>
-                <span>Error! Wrong credentials</span>
-              </div>
-            </div >
+        loginMutation.isLoading ?
+          (
+            <ThreeDots stroke="#98ff98" strokeOpacity={.125} speed={.75} />
+            // <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
+            //   <div><span className='text-2xl'>😒</span>
+            //     <span>Loading!!!</span>
+            //   </div>
+            // </div >
+          ) : (
+            error && (
+              <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
+                <div><span className='text-2xl'>😒</span>
+                  <span>Error! Wrong credentials</span>
+                </div>
+              </div >
+            )
           )
-        )
 
       }
       <div className="hero-content flex-col lg:flex-row-reverse justify-around ">

@@ -10,12 +10,13 @@ import Login from './pages/Login';
 import About from './pages/About';
 import Profile from './pages/Profile';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import Premium from './components/Premium';
-import Scholarship from './components/Scholarship';
+import Premium from './pages/Premium';
 import ResetPassword from './pages/ResetPassword';
 import AdminLogin from './pages/AdminLogin';
 import AdminProfile from './pages/AdminProfile';
 import AddScholarship from './components/AddScholarship';
+import Scholarships from './pages/Scholarships';
+import Scholarship from './pages/Scholarship';
 
 function App() {
 
@@ -34,8 +35,6 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="reset" element={<ResetPassword />} />
             <Route path="profile" element={user ? <Profile /> : <Home />} />
-            <Route path="adminprofile" element={user ? <AdminProfile /> : <Home />} />
-            <Route path="profile/addscholarships" element={user ? <AddScholarship /> : <Home />} />
             <Route path="profile/premium" element={user ? <Premium /> : <Home />} />
             <Route path="profile/scholarships" element={user ? <Scholarship /> : <Home />} />
             <Route path="*"
