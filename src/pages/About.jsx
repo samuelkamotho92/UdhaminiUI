@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaPencilAlt } from 'react-icons/fa';
-import samkam from '../images/samkam.jpg';
-import kevin from '../images/kevin profile.jpg';
-import charity from '../images/charity jelimo.jpg';
-import Denis from '../images/Denis .jpg';
+import samkam from '../images/samkam.png';
+import kevin from '../images/Kevo one.png';
+import charity from '../images/Charity.png';
+import Denis from '../images/Denis.png';
 function About() {
   return (
     <>
@@ -13,7 +13,7 @@ function About() {
         <div className="hero min-h-fit bg-base-200">
           <div className="hero-content text-center">
             <div className="max-w-screen">
-              <h1 className="text-5xl font-bold">What is Udhamini?</h1>
+              <h1 className="text-5xl font-bold text-warning">What is Udhamini?</h1>
               <p className="py-6 md:text-xl sm:text-xl">Do you want to continue with your education and money is a problem? worry no more. Udhamini will continuously update you on scholarships from world-class universities all over the world. All you need is just to apply as you wait to be admitted to your dream institution and pursue the course of your dream that enables you to land a good job anywhere in the world.</p>
               <Link className="btn btn-info btn-outline gap-2 btn-sm" to="/register"><FaPencilAlt />Get Started</Link>
             </div>
@@ -26,8 +26,8 @@ function About() {
 <div className="mockup-window border bg-base-300 mt-8 mx-4">
   <div className="hero min-h-fit bg-base-200">
     <div className="hero-content text-center">
-      <div className="max-w-screen">
-        <h1 className="text-5xl font-bold">Our Mission</h1>
+      <div className="max-w-screen"> 
+        <h1 className="text-5xl font-bold text-warning">Our Mission</h1>
         <p className="py-6 md:text-xl sm:text-xl">To ensure Accesibilty of schorlaship to needy students in our society and help children from humble backgrounds to pursue their dreams</p>
          </div>
     </div>
@@ -39,7 +39,7 @@ function About() {
   <div className="hero min-h-fit bg-base-200">
     <div className="hero-content text-center">
       <div className="max-w-screen">
-        <h1 className="text-5xl font-bold">Our Vision</h1>
+        <h1 className="text-5xl font-bold text-warning">Our Vision</h1>
         <p className="py-6 md:text-xl sm:text-xl">Offer over a thousand  scholarships accessebility to registered members</p>
          </div>
     </div>
@@ -50,12 +50,12 @@ function About() {
 
 <div className="container my-24 px-6 mx-auto">
 <section className="mb-32 text-gray-800 text-center">
-  <h2 className="text-5xl font-bold mb-10 text-white">Meet the team</h2>
+  <h2 className="text-5xl font-bold mb-10 text-warning ">Meet the team</h2>
 
-  <div className="grid md:grid-cols-3 gap-x-6 lg:gap-x-12">
+  <div className="grid md:grid-cols-4 gap-3">
     <div className="mb-6 lg:mb-0">
       <div className="bg-white block rounded-lg shadow-lg">
-        <div className="relative overflow-hidden bg-no-repeat bg-cover">
+        <div className="relative overflow-hidden bg-no-repeat  h-3/5">
           <img src={kevin} className="w-full rounded-t-lg" />
           <a href="#!">
             <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
@@ -69,8 +69,7 @@ function About() {
         </div>
         <div className="p-6">
           <h5 className="text-lg font-bold mb-4">Kevin Comba</h5>
-          <p className="text-gray-500 mb-4">Team Lead</p>
-          <p className="text-gray-500 mb-4">MERN Stack Developer</p>
+          <span className="text-gray-500 mb-4">Team Lead <br /> Mernstack Developer </span>
           <ul className="list-inside flex mx-auto justify-center">
             <a href="https://www.linkedin.com/in/kevin-comba-gatimu/" target={'_blank'} className="px-2">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-4 h-4 text-blue-600">
@@ -86,9 +85,9 @@ function About() {
     <div className="mb-6 lg:mb-0">
       <div className="bg-white block rounded-lg shadow-lg">
         <div className="relative overflow-hidden bg-no-repeat bg-cover">
-          <img src={charity} className="w-full rounded-t-lg" />
+          <img src={charity} className="w-full rounded-t-lg"/>
           <a href="#!">
-            <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
+            <div className="absolute top-0 right-0 bottom-0 left-0 w-full  h-full overflow-hidden bg-fixed"></div>
           </a>
           <svg className="absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
              style={{left: 0, bottom: 0}}>
@@ -112,9 +111,9 @@ function About() {
       </div>
     </div>
 
-    <div className="">
+    <div className="mb-6 lg:mb-0">
       <div className="bg-white block rounded-lg shadow-lg">
-        <div className="relative overflow-hidden bg-no-repeat bg-cover">
+        <div className="relative overflow-hidden bg-no-repeat  bg-cover">
           <img src={Denis} className="w-full rounded-t-lg" />
           <a href="#!">
             <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
@@ -142,7 +141,7 @@ function About() {
     </div>
     <div className="mb-6 lg:mb-0">
       <div className="bg-white block rounded-lg shadow-lg">
-        <div className="relative overflow-hidden bg-no-repeat bg-cover">
+        <div className="relative overflow-hidden bg-no-repeat  bg-cover">
           <img src={samkam} className="w-full rounded-t-lg" />
           <a href="#!">
             <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
@@ -169,6 +168,10 @@ function About() {
       </div>
     </div>
   </div>
+
+  {/* <div className="grid md:grid-cols-3 gap-x-6 lg:gap-x-12">
+
+    </div> */}
 </section>
 
 
