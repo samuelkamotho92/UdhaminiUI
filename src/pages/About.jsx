@@ -13,7 +13,7 @@ function About() {
         <div className="hero min-h-fit bg-base-200">
           <div className="hero-content text-center">
             <div className="max-w-screen">
-              <h1 className="text-5xl font-bold">What is Udhamini?</h1>
+              <h1 className="text-5xl font-bold text-warning">What is Udhamini?</h1>
               <p className="py-6 md:text-xl sm:text-xl">Do you want to continue with your education and money is a problem? worry no more. Udhamini will continuously update you on scholarships from world-class universities all over the world. All you need is just to apply as you wait to be admitted to your dream institution and pursue the course of your dream that enables you to land a good job anywhere in the world.</p>
               <Link className="btn btn-info btn-outline gap-2 btn-sm" to="/register"><FaPencilAlt />Get Started</Link>
             </div>
@@ -27,7 +27,7 @@ function About() {
   <div className="hero min-h-fit bg-base-200">
     <div className="hero-content text-center">
       <div className="max-w-screen">
-        <h1 className="text-5xl font-bold">Our Mission</h1>
+        <h1 className="text-5xl font-bold text-warning">Our Mission</h1>
         <p className="py-6 md:text-xl sm:text-xl">To ensure Accesibilty of schorlaship to needy students in our society and help children from humble backgrounds to pursue their dreams</p>
          </div>
     </div>
@@ -39,7 +39,7 @@ function About() {
   <div className="hero min-h-fit bg-base-200">
     <div className="hero-content text-center">
       <div className="max-w-screen">
-        <h1 className="text-5xl font-bold">Our Vision</h1>
+        <h1 className="text-5xl font-bold text-warning">Our Vision</h1>
         <p className="py-6 md:text-xl sm:text-xl">Offer over a thousand  scholarships accessebility to registered members</p>
          </div>
     </div>
@@ -50,7 +50,7 @@ function About() {
 
 <div className="container my-24 px-6 mx-auto">
 <section className="mb-32 text-gray-800 text-center">
-  <h2 className="text-5xl font-bold mb-10 text-white">Meet the team</h2>
+  <h2 className="text-5xl font-bold mb-10 text-warning">Meet the team</h2>
 
   <div className="grid md:grid-cols-3 gap-x-6 lg:gap-x-12">
     <div className="mb-6 lg:mb-0">

@@ -14,9 +14,11 @@ import Premium from './pages/Premium';
 import ResetPassword from './pages/ResetPassword';
 import AdminLogin from './pages/AdminLogin';
 import AdminProfile from './pages/AdminProfile';
-import AddScholarship from './components/AddScholarship';
 import Scholarships from './pages/Scholarships';
 import Scholarship from './pages/Scholarship';
+import ScholarshipCard from './components/ScholarshipCard';
+import AddScholarships from './pages/AddScholarships';
+import AllScholarship from './pages/AllScholarship';
 
 function App() {
 
@@ -35,8 +37,10 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="reset" element={<ResetPassword />} />
             <Route path="profile" element={user ? <Profile /> : <Home />} />
+            <Route path="adminprofile" element={user ? <AdminProfile /> : <Home />} />
             <Route path="profile/premium" element={user ? <Premium /> : <Home />} />
-            <Route path="profile/scholarships" element={user ? <Scholarship /> : <Home />} />
+            <Route path="admin/allscholarships" element={user ? <AllScholarship /> : <Home />} />
+            <Route path="admin/addscholarships" element={user ? <AddScholarships /> : <Home />} />
             <Route path="*"
               element={
                 <div className='shadow-lg grid place-self-center mt-20 py-20 w-3/4 mx-auto text-white  justify-center text-center'>

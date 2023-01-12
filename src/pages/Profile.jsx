@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import UserProfileSidebar from '../components/UserProfileSidebar';
 import imagePlaceholder from '../images/placeholder.png';
 import { Context } from '../context/Context';
