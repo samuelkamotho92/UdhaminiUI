@@ -21,7 +21,7 @@ function AdminLogin() {
           (response) => {
             if (response.data.accessToken) {
               dispatch({ type: 'LOGIN_SUCCESS', payload: response?.data });
-              window.location.replace(`/profile`);
+              window.location.replace(`/adminprofile`);
             }
             return response.data;
           }

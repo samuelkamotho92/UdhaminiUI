@@ -14,6 +14,8 @@ import Premium from './components/Premium';
 import Scholarship from './components/Scholarship';
 import ResetPassword from './pages/ResetPassword';
 import AdminLogin from './pages/AdminLogin';
+import AdminProfile from './pages/AdminProfile';
+import AddScholarship from './components/AddScholarship';
 
 function App() {
 
@@ -32,6 +34,8 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="reset" element={<ResetPassword />} />
             <Route path="profile" element={user ? <Profile /> : <Home />} />
+            <Route path="adminprofile" element={user ? <AdminProfile /> : <Home />} />
+            <Route path="profile/addscholarships" element={user ? <AddScholarship /> : <Home />} />
             <Route path="profile/premium" element={user ? <Premium /> : <Home />} />
             <Route path="profile/scholarships" element={user ? <Scholarship /> : <Home />} />
             <Route path="*"

@@ -1,0 +1,19 @@
+import { useContext } from 'react'
+import { FaUser, FaCog, FaMoneyCheckAlt, FaEdit } from 'react-icons/fa'
+import { Link } from "react-router-dom";
+import { Context } from '../context/Context';
+
+function AdminProfileSidebar() {
+    const { user } = useContext(Context);
+    return (
+        <ul className="menu bg-base-300  items-start justify-start text-xl mt-20px h-full userprofile">
+            <li className='w-full'><Link to={`/profile/`}><FaUser /> Profile</Link></li>
+            <li><Link to={`/profile/scholarships`}><FaMoneyCheckAlt /> Scholarships</Link></li>
+            <li><Link to={`/profile/addscholarships`}><FaEdit /> Add Scholarships</Link></li>
+            <li><Link to={`/profile/premium`}><FaMoneyCheckAlt />Premium Tier</Link></li>
+            <li><Link to={`/profile/update`}><FaCog />Edit Profile</Link></li>
+        </ul>
+    )
+}
+
+export default AdminProfileSidebar
