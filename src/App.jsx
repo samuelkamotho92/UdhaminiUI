@@ -10,9 +10,10 @@ import Login from './pages/Login';
 import About from './pages/About';
 import Profile from './pages/Profile';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import Premium from './components/Premium';
-import Scholarship from './components/Scholarship';
+import Premium from './pages/Premium';
 import ResetPassword from './pages/ResetPassword';
+import Scholarships from './pages/Scholarships';
+import Scholarship from './pages/Scholarship';
 
 function App() {
 
@@ -31,7 +32,9 @@ function App() {
             <Route path="reset" element={<ResetPassword />} />
             <Route path="profile" element={user ? <Profile /> : <Home />} />
             <Route path="profile/premium" element={user ? <Premium /> : <Home />} />
-            <Route path="profile/scholarships" element={user ? <Scholarship /> : <Home />} />
+            <Route path="profile/scholarships" element={user ? <Scholarships /> : <Home />} />
+            <Route path="profile/scholarships/single/:id" element={user ? <Scholarship /> : <Home />} />
+            <Route path="profile/premium" element={user ? <Premium /> : <Home />} />
             <Route path="*"
               element={
                 <div className='shadow-lg grid place-self-center mt-20 py-20 w-3/4 mx-auto text-white  justify-center text-center'>
