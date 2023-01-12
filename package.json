@@ -8,7 +8,6 @@
     "build": "vite build",
     "preview": "vite preview",
     "host": "vite --host"
-
   },
   "dependencies": {
     "@tanstack/react-query": "^4.20.4",
