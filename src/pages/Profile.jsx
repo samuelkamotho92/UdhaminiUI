@@ -3,7 +3,6 @@ import UserProfileSidebar from '../components/UserProfileSidebar';
 import imagePlaceholder from '../images/placeholder.png';
 import { Context } from '../context/Context';
 import userpic from '../images/kevin profile.jpg';
-import {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import '../index.css'
 
