@@ -129,7 +129,7 @@ function About() {
         <div className="p-6">
           <h5 className="text-lg font-bold mb-4">Denis Wachira</h5>
           <p className="text-gray-500 mb-4">Fullstack Developer</p>
-          <ul class="list-inside flex mx-auto justify-center">
+          <ul className="list-inside flex mx-auto justify-center">
             <a href="https://www.linkedin.com/in/denis-wachira/" target={'_blank'} className="px-2">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-4 h-4 text-blue-600">
                 <path fill="currentColor"
