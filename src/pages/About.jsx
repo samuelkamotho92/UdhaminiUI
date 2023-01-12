@@ -7,6 +7,7 @@ import charity from '../images/charity jelimo.jpg';
 import Denis from '../images/Denis .jpg';
 function About() {
   return (
+    <>
     <div className='mt-60px'>
       <div className="mockup-window border bg-base-300 mt-8 mx-4">
         <div className="hero min-h-fit bg-base-200">
@@ -19,36 +20,37 @@ function About() {
           </div>
         </div>
       </div>
-
+   </div>
 {/* mision and vision */}
-<div className=' mt-10'>
-<div className=''>
-<div className="bg-base-200">
-            <div className="mt-5">
-              <div>
-                <h1 className="text-5xl font-bold text-center">Our Mission</h1>
-                <p className="py-6 md:text-xl sm:text-xl text-center">
-                 To ensure Accesibilty of schorlaship to needy students in our society and help children from humble backgrounds to pursue their dreams</p>
-              </div>
-            </div>
-          </div>     
+<div className='mt-60px'>
+<div className="mockup-window border bg-base-300 mt-8 mx-4">
+  <div className="hero min-h-fit bg-base-200">
+    <div className="hero-content text-center">
+      <div className="max-w-screen">
+        <h1 className="text-5xl font-bold">Our Mission</h1>
+        <p className="py-6 md:text-xl sm:text-xl">To ensure Accesibilty of schorlaship to needy students in our society and help children from humble backgrounds to pursue their dreams</p>
+         </div>
+    </div>
+  </div>
 </div>
-<div  className="">
-          <div className=" bg-base-200">
-            <div className="mt-5">
-              <div>
-                <h1 className="text-5xl font-bold text-center">Our Vision</h1>
-                <p className="py-6 text-xl text-center">
-                  Offer over a thousand  schorlarships accebility to regestered members
-                  </p>
-              </div>
-            </div>
-          </div>
-        </div>
 </div>
+<div className='mt-60px'>
+<div className="mockup-window border bg-base-300 mt-8 mx-4">
+  <div className="hero min-h-fit bg-base-200">
+    <div className="hero-content text-center">
+      <div className="max-w-screen">
+        <h1 className="text-5xl font-bold">Our Vision</h1>
+        <p className="py-6 md:text-xl sm:text-xl">Offer over a thousand  scholarships accessebility to registered members</p>
+         </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
 <div className="container my-24 px-6 mx-auto">
 <section className="mb-32 text-gray-800 text-center">
-  <h2 className="text-3xl font-bold mb-12">Meet the <u className="text-blue-600">team</u></h2>
+  <h2 className="text-5xl font-bold mb-10 text-white">Meet the team</h2>
 
   <div className="grid md:grid-cols-3 gap-x-6 lg:gap-x-12">
     <div className="mb-6 lg:mb-0">
@@ -187,7 +189,7 @@ function About() {
   </div> 
 </footer> 
 </div>
-    </div>
+</>
   )
 }
 
