@@ -20,8 +20,6 @@ console.log(userData)
     <div className='flex flex-row mt-60px h-screen bg-base-200 '>
       <UserProfileSidebar />
       <main className='container  grid md:grid-cols-3 sm:grid-cols-1 gap-5 justify-center items-center h-screen mx-2 mb-3'>
-        
-    
         <button
            onClick={()=>setuserDate(userData ? false : true )}
            className='updates btn btn-warning'>Update Data</button> 
