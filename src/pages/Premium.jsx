@@ -3,8 +3,7 @@ import UserProfileSidebar from '../components/UserProfileSidebar';
 import { Context } from '../context/Context';
 import { SpinningCircles } from 'react-loading-icons'
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import wretch from 'https://cdn.skypack.dev/wretch/dist/bundle/wretch.all.min.mjs'
+import wretch from "wretch";
 
 function Premium() {
     const { user } = useContext(Context);

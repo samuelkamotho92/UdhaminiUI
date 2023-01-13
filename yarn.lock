@@ -808,6 +808,11 @@ vite@^4.0.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
+wretch@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/wretch/-/wretch-2.3.2.tgz#78396e5a33853b3dd951ea039072c3dfbcb7deb4"
+  integrity sha512-brN97Z2Mwed+w5z+keYI1u5OwWhPIaW0sJi9CxtKBVxLc3aqP6j1+2FCoIskM7WJq6SUHdxTFx20ox0iDLa0mQ==
+
 yallist@^3.0.2:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd"
