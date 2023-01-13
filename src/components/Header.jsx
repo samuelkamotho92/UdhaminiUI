@@ -33,6 +33,7 @@ function Header() {
                 <>
                   <li><Link to="/register"><FaPencilAlt /> Register</Link></li>
                   <li><Link to="/login"><FaUser /> Login</Link></li>
+                  <li><Link to="/adminLogin"><FaSignInAlt /> AdminLogin</Link></li>
                 </>
 
               )
@@ -60,6 +61,7 @@ function Header() {
               <>
                 <li><Link to="/register"><FaPencilAlt /> Register</Link></li>
                 <li><Link to="/login"><FaSignInAlt /> Login</Link></li>
+                <li><Link to="/adminLogin"><FaSignInAlt /> AdminLogin</Link></li>
               </>
             )
           }
