@@ -1,48 +1,61 @@
 import { useState } from 'react'
+import { useMutation } from '@tanstack/react-query';
 import imagePlaceholder from '../images/placeholder.png'
 import { useForm } from "react-hook-form";
-import axios from 'axios';
+import wretch from "wretch";
 function Register() {
   const { register, formState: { errors }, handleSubmit } = useForm();
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [file, setFile] = useState(null);
-  const onSubmit = async (data) => {
-    try {
-      const newUser = {
-        fullname: data.fullname,
-        age: data.age,
-        gender: data.gender,
-        education_level: data.education_level,
-        gpa: data.gpa,
-        country: data.country,
-        username: data.username,
-        email: data.email,
-        password: data.password,
-      }
-      if (file) {
-        const data = new FormData();
-        const filename = Date.now() + file.name;
-        data.append("name", filename);
-        data.append("file", file);
-        newUser.profilepic = filename;
-        try {
-          await axios.post("/upload", data);
-        } catch (err) { }
-      }
+  const [error, setError] = useState(null);
 
-      const res = await axios.post('/auth/register', newUser);
-      setSuccess(true);
-      setTimeout(() => setError(false), 3000);
-      res.data && window.location.replace("/login");
-    } catch (error) {
-      setError(true);
-      setTimeout(() => setError(false), 4000);
+
+  const RegisterMutation = useMutation({
+    mutationFn: async (data) => {
+      return wretch("https://udhamini-api.azurewebsites.net/api/users/register")
+        .post(data)
+        .res(response => console.log(response.data))
+        .catch(error => { setError(error) })
     }
+  })
+  // console.log(error.message);
+
+  const onSubmit = async (data) => {
+    RegisterMutation.mutate(data);
+    // try {
+    //   const newUser = {
+    //     fullname: data.fullname,
+    //     age: data.age,
+    //     gender: data.gender,
+    //     education_level: data.education_level,
+    //     gpa: data.gpa,
+    //     country: data.country,
+    //     username: data.username,
+    //     email: data.email,
+    //     password: data.password,
+    //   }
+    //   if (file) {
+    //     const data = new FormData();
+    //     const filename = Date.now() + file.name;
+    //     data.append("name", filename);
+    //     data.append("file", file);
+    //     newUser.profilepic = filename;
+    //     try {
+    //       await axios.post("/upload", data);
+    //     } catch (err) { }
+    //   }
+
+    //   const res = await axios.post('/auth/register', newUser);
+    //   setSuccess(true);
+    //   setTimeout(() => setError(false), 3000);
+    //   res.data && window.location.replace("/login");
+    // } catch (error) {
+    //   setError(true);
+    //   setTimeout(() => setError(false), 4000);
+    // }
   };
   return (
     <main className='bg-base-200 mt-60px'>
-      {
+      {/* {
         error === true && (
           <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
             <div><span className='text-2xl'>😒</span>
@@ -59,7 +72,7 @@ function Register() {
             </div>
           </div >
         )
-      }
+      } */}
       <div className="hero-content">
         <h1 className="text-5xl font-bold xs:text-4xl registerHeader">✍️  Register now!</h1>
       </div>
