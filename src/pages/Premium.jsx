@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import UserProfileSidebar from "../components/UserProfileSidebar";
+import AdminProfileSidebar from "../components/AdminProfileSidebar";
 import { Context } from "../context/Context";
 import { SpinningCircles } from "react-loading-icons";
 import { useQuery } from "@tanstack/react-query";
@@ -37,7 +38,8 @@ function Premium() {
 
   return (
     <div className="flex flex-row mt-60px md:h-full bg-base-200 ">
-      <UserProfileSidebar />
+      {/* <UserProfileSidebar /> */}
+      <AdminProfileSidebar />
       <main className="container  grid md:grid-cols-1 sm:grid-cols-1 gap-5 justify-center items-center md:h-full sm:h-full mx-2 mb-3">
         {isLoading && (
           <SpinningCircles

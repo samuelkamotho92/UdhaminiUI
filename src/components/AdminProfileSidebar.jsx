@@ -11,7 +11,6 @@ function AdminProfileSidebar() {
             <li><Link to={`/admin/allscholarships`}><FaMoneyCheckAlt />All Scholarships</Link></li>     
             <li><Link to={`/admin/addscholarships`}><FaMoneyCheckAlt /> Add Scholarships</Link></li>                     
             <li><Link to={`/profile/premium`}><FaMoneyCheckAlt />Premium Tier</Link></li>            
-            <li><Link to={`/profile/update`}><FaCog />Edit Profile</Link></li>
         </ul>
     )
 }

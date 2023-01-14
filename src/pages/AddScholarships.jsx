@@ -146,13 +146,14 @@ function AddScholarships() {
                       <label className="label">
                         <span className="label-text">Location</span>
                       </label>
+
                       <input
                         type="text"
                         {...register("gpa", { required: true })}
                         placeholder="Location"
                         className="input input-bordered"
                       />
-                      {errors.gpa?.type === "required" && (
+                      {errors.location?.type === "required" && (
                         <p className="label-text-alt text-red-400 pt-2">
                           Location is required 😶
                         </p>
@@ -163,14 +164,18 @@ function AddScholarships() {
                         </p>
                       )}
                       <label className="label">
-                        <span className="label-text">Location</span>
+                        <span className="label-text">Schorlaship Tier</span>
                       </label>
-                      <input
-                        type="text"
-                        {...register("gpa", { required: true })}
-                        placeholder="Enter Location"
-                        className="input input-bordered"
-                      />
+                      <select
+                        {...register("education_level", { required: true })}
+                        className="select select-bordered w-full max-w-xs"
+                      >
+                        <option selected disabled value="">
+                          Select Schorlashp Plan
+                        </option>
+                        <option value="premium tier">Premium</option>
+                        <option value="free tier">Free</option>
+                      </select>
                       {errors.gpa?.type === "required" && (
                         <p className="label-text-alt text-red-400 pt-2">
                           Location is required 😶

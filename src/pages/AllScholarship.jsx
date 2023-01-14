@@ -24,7 +24,7 @@ function AllScholarship() {
   return (
     <div className="flex flex-row  md:h-full bg-base-200 ">
       <AdminProfileSidebar />
-      <main className="container my-3 justify-center items-center h-full ">
+      <main className="container mx-2 my-3 justify-center items-center h-full ">
         {isLoading && (
           <SpinningCircles
             stroke="#98ff98"

@@ -1,8 +1,9 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import UserProfileSidebar from '../components/UserProfileSidebar';
 import imagePlaceholder from '../images/placeholder.png';
 import { Context } from '../context/Context';
 import userpic from '../images/kevin profile.jpg';
+import {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import '../index.css'
 
@@ -19,6 +20,8 @@ console.log(userData)
     <div className='flex flex-row mt-60px h-screen bg-base-200 '>
       <UserProfileSidebar />
       <main className='container  grid md:grid-cols-3 sm:grid-cols-1 gap-5 justify-center items-center h-screen mx-2 mb-3'>
+        
+    
         <button
            onClick={()=>setuserDate(userData ? false : true )}
            className='updates btn btn-warning'>Update Data</button> 
