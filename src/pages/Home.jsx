@@ -15,7 +15,7 @@ function Home() {
               <img src={slider2} className="max-w-xl rounded-lg shadow-2xl" alt='no pic' />
               <div className='hero1'>
                 <h1 className="text-5xl font-bold">Welcome to Udhamini Community</h1>
-                <p className="py-6">Udhamini is a platform where students can get  access to huge collection of Scolarships and apply for them. Thousands of students have benifited, and we are grand your here...</p>
+                <p className="py-6">Udhamini is a platform where students can get  access to huge collection of Scholarships and apply for them.This bridges the gap between students searching for scholarships online and missing opportunities some of them due to the deadline</p>
                 <button className="btn btn-outline btn-warning"><Link to="/register">Register To Get Started</Link></button>
               </div>
             </div>
@@ -33,9 +33,9 @@ function Home() {
                 <h1 className="text-5xl font-bold">Our Goals 🤝</h1>
                 <div className="py-6 text-xl">
                   <ul>
-                    <li>➡️ Help needy students</li>
-                    <li>➡️ Bring students' dreams closer</li>
-                    <li>➡️ Create community a thriving community</li>
+                    <li>🎇 To increase accessibility of scholarships</li>
+                    <li>🎇 Help Students achieve their dreams</li>
+                    <li>🎇 Create a thriving community</li>
                   </ul>
                 </div>
                 <button className="btn btn-info btn-outline"><Link to="/register">Register To Get Started</Link></button>
