@@ -37,6 +37,8 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="reset" element={<ResetPassword />} />
             <Route path="profile" element={user ? <Profile /> : <Home />} />
+            <Route path="profile/scholarships" element={user ? <Scholarships /> : <Home />} />
+            <Route path="profile/scholarships/single/:id" element={user ? <Scholarship /> : <Home />} />
             <Route path="adminprofile" element={user ? <AdminProfile /> : <Home />} />
             <Route path="profile/premium" element={user ? <Premium /> : <Home />} />
             <Route path="admin/allscholarships" element={user ? <AllScholarship /> : <Home />} />
