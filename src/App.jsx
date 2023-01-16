@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Context } from "./context/Context";
-import './App.css'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -9,16 +9,15 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import About from './pages/About';
 import Profile from './pages/Profile';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Premium from './pages/Premium';
 import ResetPassword from './pages/ResetPassword';
 import AdminLogin from './pages/AdminLogin';
 import AdminProfile from './pages/AdminProfile';
 import Scholarships from './pages/Scholarships';
 import Scholarship from './pages/Scholarship';
-import ScholarshipCard from './components/ScholarshipCard';
 import AddScholarships from './pages/AddScholarships';
 import AllScholarship from './pages/AllScholarship';
+import './App.css'
 
 function App() {
 

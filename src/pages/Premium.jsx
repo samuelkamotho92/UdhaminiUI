@@ -7,8 +7,8 @@ import { useQuery } from "@tanstack/react-query";
 import wretch from "wretch";
 function Premium() {
     const { user } = useContext(Context);
-    console.log(user);
     const authToken = user?.accessToken;
+    console.log(user)
     const [check, setcheck] = useState(false);
 
     const {
@@ -48,12 +48,13 @@ function Premium() {
                 {mydata?.status ? (
                     <>
                         <div className="mockup-code md:w-1/2 md:ml-auto mx-auto ">
+                            <pre data-prefix="😊" className="bg-info text-info-content">
+                                <code>Hello! Welcome..</code>
+                            </pre>
                             <pre data-prefix="1" className="bg-warning text-warning-content">
                                 <code>{mydata?.message}</code>
                             </pre>
-                            <pre data-prefix="$">
-                                <code>Hello! Welcome..</code>
-                            </pre>
+
                             <pre data-prefix=">" className="text-warning">
                                 <code>click the button below to upgrade your tier...</code>
                             </pre>
