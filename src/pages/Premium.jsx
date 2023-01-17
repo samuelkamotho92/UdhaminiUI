@@ -5,6 +5,7 @@ import { SpinningCircles } from "react-loading-icons";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import wretch from "https://cdn.skypack.dev/wretch/dist/bundle/wretch.all.min.mjs";
+import AdminProfileSidebar from "../components/AdminProfileSidebar";
 
 function Premium() {
   const { user } = useContext(Context);

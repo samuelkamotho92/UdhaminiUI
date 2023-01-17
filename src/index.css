@@ -1,4 +1,4 @@
-@media (max-width: 375px),(max-width: 514px) {
+@media (max-width: 370px),(max-width: 514px) {
     .userprofile {
         display: none;
         flex-direction: column;
@@ -96,4 +96,11 @@
     flex-wrap: wrap;
   }
  }
+
+ /* .footer {
+width: 100%;
+position: fixed;
+bottom: 0;
+z-index: -1;
+} */
  

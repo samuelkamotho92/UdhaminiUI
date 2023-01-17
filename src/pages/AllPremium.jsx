@@ -8,7 +8,7 @@ import { SpinningCircles } from "react-loading-icons";
 import AdminProfileSidebar from "../components/AdminProfileSidebar";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 
-function AllScholarship() {
+function AllPremium() {
   const { id } = useParams();
   const { data, isLoading, error } = useQuery(
     ["oneScholarships"],
@@ -151,4 +151,4 @@ function AllScholarship() {
   );
 }
 
-export default AllScholarship;
+export default AllPremium;
