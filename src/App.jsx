@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Context } from "./context/Context";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -9,18 +10,15 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Premium from "./pages/Premium";
 import ResetPassword from "./pages/ResetPassword";
 import AdminLogin from "./pages/AdminLogin";
 import AdminProfile from "./pages/AdminProfile";
 import Scholarships from "./pages/Scholarships";
 import Scholarship from "./pages/Scholarship";
-import ScholarshipCard from "./components/ScholarshipCard";
 import AddScholarships from "./pages/AddScholarships";
 import AllScholarship from "./pages/AllScholarship";
-import AllPremium from "./pages/AllPremium";
-import AllUsers from "./pages/AllUsers";
+import "./App.css";
 
 function App() {
   const { user } = useContext(Context);
@@ -39,28 +37,24 @@ function App() {
             <Route path="reset" element={<ResetPassword />} />
             <Route path="profile" element={user ? <Profile /> : <Home />} />
             <Route
+              path="profile/scholarships"
+              element={user ? <Scholarships /> : <Home />}
+            />
+            <Route
+              path="profile/scholarships/single/:id"
+              element={user ? <Scholarship /> : <Home />}
+            />
+            <Route
               path="adminprofile"
               element={user ? <AdminProfile /> : <Home />}
             />
             <Route
-              path="/profile/premium"
+              path="profile/premium"
               element={user ? <Premium /> : <Home />}
-            />
-            <Route
-              path="/profile/scholarships"
-              element={user ? <Scholarships /> : <Home />}
             />
             <Route
               path="admin/allscholarships"
               element={user ? <AllScholarship /> : <Home />}
-            />
-            <Route
-              path="/admin/premiumtier"
-              element={user ? <AllPremium /> : <Home />}
-            />
-            <Route
-              path="/admin/users"
-              element={user ? <AllUsers /> : <Home />}
             />
             <Route
               path="admin/addscholarships"
