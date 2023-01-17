@@ -18,7 +18,9 @@ import Scholarships from "./pages/Scholarships";
 import Scholarship from "./pages/Scholarship";
 import AddScholarships from "./pages/AddScholarships";
 import AllScholarship from "./pages/AllScholarship";
+import AllUsers from "./pages/AllUsers";
 import "./App.css";
+import AllPremium from "./pages/AllPremium";
 
 function App() {
   const { user } = useContext(Context);
@@ -59,6 +61,14 @@ function App() {
             <Route
               path="admin/addscholarships"
               element={user ? <AddScholarships /> : <Home />}
+            />
+            <Route
+              path="admin/users"
+              element={user ? <AllUsers /> : <Home />}
+            />
+            <Route
+              path="admin/premium-tier"
+              element={user ? <AllPremium /> : <Home />}
             />
             <Route
               path="*"

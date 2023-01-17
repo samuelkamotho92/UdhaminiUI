@@ -19,7 +19,7 @@ function AdminProfileSidebar() {
         </Link>
       </li>
       <li>
-        <Link to={`/admin/premiumtier`}>
+        <Link to={`/admin/premium-tier`}>
           <FaMoneyCheckAlt />
           All Premiums
         </Link>
