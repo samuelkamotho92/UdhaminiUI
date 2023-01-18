@@ -1,3 +1,24 @@
+@media (max-width: 370px),(max-width: 514px) {
+    .userprofile {
+        display: none;
+        flex-direction: column;
+    }
+    .updateCol{
+      display:flex;
+      flex-direction: column;
+       }
+    .register{
+        font-size: x-large;
+}
+.loginImg{
+    max-width: 100%;     
+    display: none;   
+}
+.resetImg{
+    max-width: 100%;     
+    display: none;   
+}
+.registerHeader{
 @media (max-width: 375px),
 (max-width: 514px) {
   .userprofile {

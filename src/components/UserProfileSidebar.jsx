@@ -1,7 +1,7 @@
-import { useContext } from 'react'
-import { FaUser, FaCog, FaMoneyCheckAlt } from 'react-icons/fa'
+import { useContext } from "react";
+import { FaUser, FaCog, FaMoneyCheckAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Context } from '../context/Context';
+import { Context } from "../context/Context";
 
 function UserProfileSidebar() {
     const { user } = useContext(Context);
@@ -15,4 +15,4 @@ function UserProfileSidebar() {
     )
 }
 
-export default UserProfileSidebar
+export default UserProfileSidebar;
