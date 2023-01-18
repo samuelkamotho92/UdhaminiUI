@@ -1,6 +1,6 @@
 import React from 'react';
 import slider2 from "../images/slider2.jpg"
-import slider1 from "../images/slider1.png"
+import slider1 from "../images/kevo.png"
 import slider3 from "../images/slider3.jpg"
 import slider4 from "../images/Charity.png"
 import { Link } from 'react-router-dom';
@@ -25,10 +25,10 @@ function Home() {
             <a href="#2" className="btn btn-circle text-3xl">👉</a>
           </div>
         </div>
-        <div id="2" className="carousel-item relative w-full">
-          <div className="hero h-fit">
+        <div id="2" className="carousel-item relative w-full h-fit">
+          <div className="hero ">
             <div className="hero-content flex-col lg:flex-row">
-              <img src={slider3} className="max-w-xl rounded-lg shadow-2xl" alt='no pic' />
+              <img src={slider3} className="max-w-2xl rounded-lg shadow-2xl" alt='no pic' />
               <div className='hero2'>
                 <h1 className="text-5xl font-bold">Our Goals 🤝</h1>
                 <div className="py-6 text-xl">
