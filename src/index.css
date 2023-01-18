@@ -1,99 +1,115 @@
-@media (max-width: 375px),(max-width: 514px) {
-    .userprofile {
-        display: none;
-        flex-direction: column;
-    }
-    .updateCol{
-      display:flex;
-      flex-direction: column;
-       }
-    .register{
-        font-size: x-large;
-}
-.loginImg{
-    max-width: 100%;     
-    display: none;   
-}
-.resetImg{
-    max-width: 100%;     
-    display: none;   
-}
-.registerHeader{
+@media (max-width: 375px),
+(max-width: 514px) {
+  .userprofile {
+    display: none;
+    flex-direction: column;
+  }
+
+  .updateCol {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .register {
     font-size: x-large;
   }
-  .loginPage{
+
+  .loginImg {
+    max-width: 100%;
+    display: none;
+  }
+
+  .resetImg {
+    max-width: 100%;
+    display: none;
+  }
+
+  .registerHeader {
+    font-size: x-large;
+  }
+
+  .loginPage {
     justify-content: center;
     margin: 0 auto;
     width: 100%;
   }
-  .resetPage{
+
+  .resetPage {
     justify-content: center;
     font-size: larger;
     /* margin: 0 auto;
     width: 100%; */
   }
-  .loginHeader>h1{
-     font-size: xx-large;
+
+  .loginHeader>h1 {
+    font-size: xx-large;
   }
+
   .footer {
     justify-content: center;
   }
-  .footerIcon{
+
+  .footerIcon {
     justify-self: center;
   }
-  .hero-content >img{
+
+  .hero-content>img {
     max-width: 100%;
-    
-  }  
-  .hero1 >h1{
+
+  }
+
+  .hero1>h1 {
     font-size: large;
   }
-  .hero2> h1{
-    font-size: xx-large; 
-  }
-  /* .arrows1{
-    top: 1/8;
-  }*/
- } 
 
- /* .userPage{
+  .hero2>h1 {
+    font-size: xx-large;
+  }
+  .arrows {
+    display: none;
+  }
+}
+
+/* .userPage{
   position: relative;
  } */
 
- .updates{
+.updates {
   position: absolute;
   top: 80px;
   right: 0;
- margin-right: 10px;
- }
- @media (max-width:767px) {
-  .updates{
- 
-  }
-  .avatar{
+  margin-right: 10px;
+}
+
+@media (max-width:767px) {
+  .updates {}
+
+  .avatar {
     margin-top: 70px;
   }
- }
+}
 
- @media (max-width:1023px) {
-  .updateCol{
- display:flex;
- flex-direction: row;
+@media (max-width:1023px) {
+  .updateCol {
+    display: flex;
+    flex-direction: row;
   }
-  .updates{
-    
+
+  .updates {
+
     position: absolute;
     top: 80px;
     justify-content: flex-start;
-   }
-   /* .urlimage{
+  }
+
+  /* .urlimage{
     margin-right: 100px;
    } */
- }
- @media (max-width:639) {
-  .cardy{
+}
+
+@media (max-width:639) {
+  .cardy {
     flex-direction: column;
     flex-wrap: wrap;
   }
- }
- 
+}

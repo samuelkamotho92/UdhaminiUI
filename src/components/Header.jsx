@@ -9,7 +9,7 @@ function Header() {
     window.location.replace("/")
   }
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-300 ">
       <div className="navbar-none">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

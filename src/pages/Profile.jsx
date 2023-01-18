@@ -42,15 +42,10 @@ function Profile() {
     updateRegisterMutation.mutate(data);
   };
 
-
-
-
-
-
   return (
-    <div className='flex flex-row mt-60px h-screen bg-base-200 '>
+    <div className='flex flex-row mt-60px h-full  bg-base-200 '>
       <UserProfileSidebar />
-      <main className='container  grid md:grid-cols-3 sm:grid-cols-1 gap-5 justify-center items-center h-screen mx-2 mb-3'>
+      <main className='container  grid md:grid-cols-3 sm:grid-cols-1 gap-5 justify-center items-center md:h-full lg:h-full sm:h-fit mx-2 mb-3'>
         {
           updateRegisterMutation.isLoading ?
             (

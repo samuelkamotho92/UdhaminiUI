@@ -17,7 +17,9 @@ import Scholarships from './pages/Scholarships';
 import Scholarship from './pages/Scholarship';
 import AddScholarships from './pages/AddScholarships';
 import AllScholarship from './pages/AllScholarship';
+import Pay from './pages/Pay';
 import './App.css'
+import PremiumScholarshipCard from './components/PremiumScholarshipCard';
 
 function App() {
 
@@ -36,8 +38,10 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="reset" element={<ResetPassword />} />
             <Route path="profile" element={user ? <Profile /> : <Home />} />
+            <Route path="profile/pay" element={user ? <Pay /> : <Home />} />
             <Route path="profile/scholarships" element={user ? <Scholarships /> : <Home />} />
             <Route path="profile/scholarships/single/:id" element={user ? <Scholarship /> : <Home />} />
+            <Route path="profile/premium/single/:id" element={user ? <PremiumScholarshipCard /> : <Home />} />
             <Route path="adminprofile" element={user ? <AdminProfile /> : <Home />} />
             <Route path="profile/premium" element={user ? <Premium /> : <Home />} />
             <Route path="admin/allscholarships" element={user ? <AllScholarship /> : <Home />} />

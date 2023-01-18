@@ -22,19 +22,6 @@ function Register() {
 
   const onSubmit = async (data) => {
     RegisterMutation.mutate(data);
-
-    //   if (file) {
-    //     const data = new FormData();
-    //     const filename = Date.now() + file.name;
-    //     data.append("name", filename);
-    //     data.append("file", file);
-    //     newUser.profilepic = filename;
-    //     try {
-    //       await axios.post("/upload", data);
-    //     } catch (err) { }
-    //   }
-
-
   };
   return (
     <main className='bg-base-200 mt-60px'>
