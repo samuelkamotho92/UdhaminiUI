@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaPencilAlt } from 'react-icons/fa';
 import samkam from '../images/samkam.png';
-import kevin from '../images/Kevo.png';
+import kevin from '../images/kevin.png';
 import charity from '../images/Charity.png';
 import Denis from '../images/Denis.png';
 function About() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import slider2 from "../images/slider2.jpg"
-import slider1 from "../images/kevo.png"
+import slider1 from "../images/kevin.png"
 import slider3 from "../images/slider3.jpg"
 import slider4 from "../images/Charity.png"
 import { Link } from 'react-router-dom';
