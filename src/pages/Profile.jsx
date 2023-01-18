@@ -2,24 +2,21 @@ import { useContext, useState } from "react";
 import UserProfileSidebar from "../components/UserProfileSidebar";
 import imagePlaceholder from "../images/placeholder.png";
 import { Context } from "../context/Context";
-import userpic from "../images/kevin profile.jpg";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { ThreeDots } from "react-loading-icons";
 import wretch from "wretch";
 import "../index.css";
+import userpic from "../images/kevo.png";
 
 function Profile() {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
+  const { user } = useContext(Context);
+  const { register, formState: { errors }, handleSubmit } = useForm();
   const [success, setSuccess] = useState(false);
   const [file, setFile] = useState(null);
   const [profileToggle, setProfileToggle] = useState(false);
   const [successMsg, setSuccessMsg] = useState(false);
-
+  const [error, setError] = useState(false);
 
   const updateRegisterMutation = useMutation({
     mutationFn: async (data) => {
@@ -45,38 +42,12 @@ function Profile() {
   };
 
   return (
-    <div className='flex flex-row mt-60px h-full  bg-base-200 '>
+    <div className="flex flex-row mt-60px sm:h-fit md:h-full bg-base-200 ">
       <UserProfileSidebar />
-      <main className='container  grid md:grid-cols-3 sm:grid-cols-1 gap-5 justify-center items-center md:h-full lg:h-full sm:h-fit mx-2 mb-3'>
-        {
-          updateRegisterMutation.isLoading ?
-            (
-              <ThreeDots stroke="#98ff98" strokeOpacity={.125} speed={.75} />
-            ) : (
-              error && (
-                <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
-                  <div><span className='text-2xl'>😒</span>
-                    <span>Error! {error?.message}</span>
-                  </div>
-                </div >
-              )
-            )
-        }{
-          successMsg && (
-            <div className="alert alert-success mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
-              <div><span className='text-2xl'>😎</span>
-                <span>Success! Profile updated</span>
-              </div>
-            </div >)
-        }
-        <button
-          onClick={() => setuserDate(userData ? false : true)}
-          className="updates btn btn-warning"
-        >
-          Update Data
-        </button>
-        {userData ? (
-          <div className="bg-base-200 w-screen h-full">
+      <button onClick={() => setProfileToggle(profileToggle ? false : true)} className="updates btn btn-warning"> Update Data </button>
+      <main className="container  grid md:grid-cols-3 sm:grid-cols-1 gap-5 justify-center items-center h-full mx-2 mb-3">
+        {profileToggle ? (
+          <div className="bg-base-200 w-screen h-fit">
             <form>
               <div className="hero-content flex-row lg:flex-row-reverse updateCol">
                 <div className="">

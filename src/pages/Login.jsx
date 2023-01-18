@@ -52,9 +52,9 @@ function Login() {
           )
 
       }
-      <div className="hero-content flex-col lg:flex-row-reverse justify-around ">
-        <div className="hero-content ">
-          < div className="card flex-shrink-0 w-full max-w-sm shadow-2xl p-2 bg-base-200 place-self-center" >
+      <div className="hero-content flex-col lg:flex-row-reverse bg-base-200 justify-around ">
+        <div className="hero-content bg-base-200 ">
+          < div className="card flex-shrink-0 w-full max-w-sm shadow-2xl p-2  place-self-center" >
             <div className="card-header loginHeader">
               <h1 className="text-5xl font-bold  px-2  text-center">Login  🔐</h1>
             </div>

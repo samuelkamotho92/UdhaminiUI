@@ -16,7 +16,7 @@ function Register() {
       return wretch("https://udhamini-api.azurewebsites.net/api/users/register")
         .post(data)
         .res(response => { window.location.replace(`/login`); })
-        .catch(error => { setError(error) })
+        .catch(error => { setError(error) && setTimeout(() => setError(false), 3000) })
     }
   })
 
@@ -38,8 +38,6 @@ function Register() {
               </div >
             )
           )
-      }{
-        setTimeout(() => setError(false), 3000)
       }
       <div className="hero-content">
         <h1 className="text-5xl font-bold xs:text-4xl registerHeader">✍️  Register now!</h1>

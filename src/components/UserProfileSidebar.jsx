@@ -10,7 +10,6 @@ function UserProfileSidebar() {
             <li className='w-full'><Link to={`/profile/`}><FaUser /> Profile</Link></li>
             <li><Link to={`/profile/scholarships`}><FaMoneyCheckAlt /> Scholarships</Link></li>
             <li><Link to={`/profile/premium`}><FaMoneyCheckAlt />Premium Tier</Link></li>
-            <li><Link to={`/profile/update`}><FaCog />Edit Profile</Link></li>
         </ul>
     )
 }

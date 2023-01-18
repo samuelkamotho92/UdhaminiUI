@@ -14,24 +14,6 @@ function AdminLogin() {
   const { dispatch } = useContext(Context);
 
   const loginMutation = useMutation({
-    mutationFn: async (data) => {
-      return axios
-        .post('https://udhamini-api.azurewebsites.net/api/auth/userLogin', data).then(
-          (response) => {
-            if (response.data.accessToken) {
-              dispatch({ type: 'LOGIN_SUCCESS', payload: response?.data });
-              window.location.replace(`/adminprofile`);
-            }
-            return response.data;
-          }
-        ).catch(
-          (error) => {
-            dispatch({ type: 'LOGIN_FAILURE' });
-            setError(true);
-            setTimeout(() => setError(false), 3000);
-          }
-        )
-    }
 
   })
   const onSubmit = (data) => {

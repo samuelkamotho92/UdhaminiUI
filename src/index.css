@@ -18,7 +18,8 @@
     max-width: 100%;     
     display: none;   
 }
-.registerHeader{
+}
+
 @media (max-width: 375px),
 (max-width: 514px) {
   .userprofile {
@@ -91,10 +92,6 @@
   }
 }
 
-/* .userPage{
-  position: relative;
- } */
-
 .updates {
   position: absolute;
   top: 80px;
@@ -102,31 +99,24 @@
   margin-right: 10px;
 }
 
+
 @media (max-width:767px) {
-  .updates {}
+  .updates {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    margin-right: 10px;
+  }
 
   .avatar {
     margin-top: 70px;
   }
 }
 
-@media (max-width:1023px) {
-  .updateCol {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .updates {
-
-    position: absolute;
-    top: 80px;
-    justify-content: flex-start;
-  }
-
   /* .urlimage{
     margin-right: 100px;
    } */
-}
+
 
 @media (max-width:639) {
   .cardy {
