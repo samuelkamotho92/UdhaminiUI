@@ -34,18 +34,18 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Login />} />
-            <Route path="adminLogin" element={<AdminLogin />} />
             <Route path="about" element={<About />} />
             <Route path="reset" element={<ResetPassword />} />
             <Route path="profile" element={user ? <Profile /> : <Home />} />
             <Route path="profile/pay" element={user ? <Pay /> : <Home />} />
             <Route path="profile/scholarships" element={user ? <Scholarships /> : <Home />} />
             <Route path="profile/scholarships/single/:id" element={user ? <Scholarship /> : <Home />} />
-            <Route path="profile/premium/single/:id" element={user ? <PremiumScholarshipCard /> : <Home />} />
-            <Route path="adminprofile" element={user ? <AdminProfile /> : <Home />} />
             <Route path="profile/premium" element={user ? <Premium /> : <Home />} />
-            <Route path="admin/allscholarships" element={user ? <AllScholarship /> : <Home />} />
-            <Route path="admin/addscholarships" element={user ? <AddScholarships /> : <Home />} />
+            <Route path="profile/premium/single/:id" element={user ? <PremiumScholarshipCard /> : <Home />} />
+            <Route path="adminLogin" element={<AdminLogin />} />
+            <Route path="adminprofile" element={<AdminProfile />} />
+            <Route path="admin/allscholarships" element={<AllScholarship />} />
+            <Route path="admin/addscholarships" element={<AddScholarships />} />
             <Route path="*"
               element={
                 <div className="shadow-lg grid place-self-center mt-20 py-20 w-3/4 mx-auto text-white  justify-center text-center">
