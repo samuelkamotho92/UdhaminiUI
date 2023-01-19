@@ -7,7 +7,7 @@ import { useMutation } from "@tanstack/react-query";
 import { ThreeDots } from "react-loading-icons";
 import wretch from "wretch";
 import "../index.css";
-import userpic from "../images/kevo.png";
+import userpic from "../images/kevin.png";
 
 function Profile() {
   const { user } = useContext(Context);
