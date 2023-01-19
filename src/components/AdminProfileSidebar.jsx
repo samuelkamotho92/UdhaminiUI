@@ -19,19 +19,18 @@ function AdminProfileSidebar() {
         </Link>
       </li>
       <li>
-        <Link to={`/admin/premium-tier`}>
+        <Link to={`/admin/all-premium-tier`}>
           <FaMoneyCheckAlt />
           All Premiums
+        </Link>
+
+        <Link to={`/admin/users`}>
+          <FaMoneyCheckAlt /> Users
         </Link>
       </li>
       <li>
         <Link to={`/admin/addscholarships`}>
           <FaMoneyCheckAlt /> Add Scholarships
-        </Link>
-      </li>
-      <li>
-        <Link to={`/admin/users`}>
-          <FaMoneyCheckAlt /> Users
         </Link>
       </li>
     </ul>
