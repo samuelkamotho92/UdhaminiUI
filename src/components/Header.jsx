@@ -9,7 +9,7 @@ function Header() {
     window.location.replace("/")
   }
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-300 ">
       <div className="navbar-none">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -26,7 +26,6 @@ function Header() {
                   <li><Link to="/profile/"><FaUser className="text-xl" />Profile</Link></li>
                   <li><Link to={`/profile/scholarships`}><FaMoneyCheck className="text-xl" /> Scholarships</Link></li>
                   <li><Link to={`/profile/premium`}><FaMoneyCheckAlt className="text-lg" />Premium</Link></li>
-                  <li><Link to="/profile/update/"><FaCogs className=" text-xl" />Settings</Link></li>
                   <li><a href='#' onClick={handleLogout}><FaUserAltSlash className="text-xl" />Logout</a></li>
                 </>
               ) : (
@@ -54,7 +53,7 @@ function Header() {
             user ? (
               <>
                 <li><Link to="/profile/" className="justify-between"><FaUser className="rounded-full text-xl" />Profile</Link></li>
-                <li><Link to="/profile/update/"><FaCogs className=" text-xl" />Settings</Link></li>
+
                 <li><a href='#' onClick={handleLogout}><FaUserAltSlash className="rounded-full text-xl" />Logout</a></li>
               </>
             ) : (

@@ -1,11 +1,10 @@
 import { useState, useContext } from 'react';
 import { useForm } from "react-hook-form";
-// import { Context } from '../context/Context';
+import { Context } from '../context/Context';
 import login from "../images/Login.png";
 import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
-import { Context } from '../context/Context';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import wretch from 'wretch';
 
 
 
@@ -13,30 +12,27 @@ function AdminLogin() {
   const { register, formState: { errors }, handleSubmit } = useForm();
   const [error, setError] = useState(false);
   const { dispatch } = useContext(Context);
-
-  const loginMutation = useMutation({
+  let navigate = useNavigate();
+  const AdminLoginMutation = useMutation({
     mutationFn: async (data) => {
-      return axios
-        .post('https://udhamini-api.azurewebsites.net/api/auth/userLogin', data).then(
-          (response) => {
-            if (response.data.accessToken) {
-              dispatch({ type: 'LOGIN_SUCCESS', payload: response?.data });
-              window.location.replace(`/adminprofile`);
-            }
-            return response.data;
+      return wretch("https://udhamini-api.azurewebsites.net/api/auth/adminLogin")
+        .post(data)
+        .json()
+        .then((data) => {
+          if (data.accessToken) {
+            dispatch({ type: 'LOGIN_SUCCESS', payload: data });
+            navigate("/adminprofile");
           }
-        ).catch(
-          (error) => {
-            dispatch({ type: 'LOGIN_FAILURE' });
-            setError(true);
-            setTimeout(() => setError(false), 3000);
-          }
-        )
+        })
+        .catch(error => {
+          dispatch({ type: 'LOGIN_FAILURE' });
+          setError(true);
+          setTimeout(() => setError(false), 3000);
+        })
     }
-
   })
   const onSubmit = (data) => {
-    loginMutation.mutate(data);
+    AdminLoginMutation.mutate(data);
   }
 
 
@@ -44,7 +40,7 @@ function AdminLogin() {
   return (
     <div className='grid mt-60px bg-base-200 loginPage'>
       {
-        loginMutation.isLoading ? (
+        AdminLoginMutation.isLoading ? (
           <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
             <div><span className='text-2xl'>😒</span>
               <span>Loading!!!</span>
@@ -83,7 +79,7 @@ function AdminLogin() {
                   <input type="password" {...register("password", { required: true })} placeholder="Enter password" className="input input-warning input-lg input-bordered" />
                   {errors.password?.type === 'required' && <p className="label-text-alt text-red-400 pt-2">password is required😶</p>}
                   <label className="label">
-                    <a href="#" className="label-text-alt link link-hover"><Link to="/reset">forgot password?</Link></a>
+                    <Link className="label-text-alt link link-hover" to="/reset">forgot password?</Link>
                   </label>
                 </div>
                 <div className="form-control mt-6">
