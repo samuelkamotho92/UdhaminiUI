@@ -143,9 +143,7 @@ console.log(userData)
           <ul className="menu menu-vertical bg-base-100 rounded-box p-2 text-xl justify-center">
             <li><a>Username : {user?.username}</a></li>
             <li><a>Password  : ******</a></li>
-          </ul>
-
-         
+          </ul>  
         </> 
   )
 }
