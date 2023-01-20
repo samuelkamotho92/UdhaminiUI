@@ -4,11 +4,24 @@ import imagePlaceholder from '../images/placeholder.png'
 import { useForm } from "react-hook-form";
 import wretch from "wretch";
 import { ThreeDots } from 'react-loading-icons'
-
 function Register() {
   const { register, formState: { errors }, handleSubmit } = useForm();
   const [file, setFile] = useState(null);
   const [error, setError] = useState("");
+  const [image, setImage] = useState(null);
+  const [blob, setBlob] = useState(null);
+    console.log(image)
+    const convertToBlob = (e) => {
+      const file = e.target.files[0];
+      console.log(file);
+      setImage(URL.createObjectURL(file));
+      const reader = new FileReader();
+      console.log(reader);
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setBlob(reader.result);
+      };
+    };
 
 
   const RegisterMutation = useMutation({
@@ -71,10 +84,10 @@ function Register() {
                   <div className="w-24 mask mask-hexagon place-self-center" >
                     <label htmlFor="fileInput">
                       {
-                        file ? (
+                        image ? (
                           <img
                             className="cursor-pointer"
-                            src={URL.createObjectURL(file)}
+                            src={image}
                             alt="invalid Imagefile😒"
                           />
                         ) : (
@@ -82,7 +95,7 @@ function Register() {
                         )
                       }
                     </label>
-                    <input type="file" id="fileInput" style={{ display: "none" }} onChange={(e) => setFile(e.target.files[0])} />
+                    <input type="file"  {...register('fileInput')} id='fileInput'  style={{ display: "none" }} onChange={convertToBlob} /> 
                   </div>
                 </div>
               </div>
