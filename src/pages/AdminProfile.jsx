@@ -29,8 +29,6 @@ function AdminProfile() {
           <li><a href='#'>Age : {user?.age}</a></li>
           <li><a href='#'>Gender : {user?.gender}</a></li>
           <li><a href='#'>Email : {user?.email}</a></li>
-          <li><a href='#'>G.P.A : {user?.gpa}</a></li>
-          <li><a href='#'>Education Level : {user?.education_level}</a></li>
           <li><a href='#'>Country of Residence : {user?.country}</a></li>
         </ul>
         <ul className="menu menu-vertical bg-base-200 rounded-box p-2 text-xl justify-center">

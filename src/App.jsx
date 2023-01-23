@@ -18,6 +18,8 @@ import Scholarships from './pages/Scholarships';
 import Scholarship from './pages/Scholarship';
 import AddScholarships from './pages/AddScholarships';
 import AllScholarship from './pages/AllScholarship';
+import AllPremium from './pages/AllPremium';
+import AllUsers from './pages/AllUsers'
 import Pay from './pages/Pay';
 import './App.css'
 import PremiumScholarshipCard from './components/PremiumScholarshipCard';
@@ -46,6 +48,8 @@ function App() {
             <Route path="adminprofile" element={<AdminProfile />} />
             <Route path="admin/allscholarships" element={<AllScholarship />} />
             <Route path="admin/addscholarships" element={<AddScholarships />} />
+            <Route path="admin/all-premium-tier" element={<AllPremium />} />
+            <Route path="admin/users" element={<AllUsers />} />
             <Route path="*"
               element={
                 <div className="shadow-lg grid place-self-center mt-20 py-20 w-3/4 mx-auto text-white  justify-center text-center">
