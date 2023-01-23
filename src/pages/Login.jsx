@@ -6,6 +6,7 @@ import wretch from 'wretch';
 import { Context } from '../context/Context';
 import { Link } from 'react-router-dom';
 import { ThreeDots } from 'react-loading-icons'
+import { DeployedURL } from '../components/Constants';
 
 
 function Login() {
@@ -15,7 +16,7 @@ function Login() {
 
   const loginMutation = useMutation({
     mutationFn: async (data) => {
-      return wretch("https://udhamini-api.azurewebsites.net/api/auth/userLogin")
+      return wretch(`${DeployedURL}/auth/userLogin`)
         .post(data)
         .json()
         .then((data) => {

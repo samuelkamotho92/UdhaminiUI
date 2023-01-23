@@ -4,36 +4,41 @@ import imagePlaceholder from '../images/placeholder.png'
 import { useForm } from "react-hook-form";
 import wretch from "wretch";
 import { ThreeDots } from 'react-loading-icons'
+import axios from 'axios';
+import { DeployedURL } from '../components/Constants';
+
 function Register() {
   const { register, formState: { errors }, handleSubmit } = useForm();
-  const [file, setFile] = useState(null);
   const [error, setError] = useState("");
-  const [image, setImage] = useState(null);
-  const [blob, setBlob] = useState(null);
-    console.log(image)
-    const convertToBlob = (e) => {
-      const file = e.target.files[0];
-      console.log(file);
-      setImage(URL.createObjectURL(file));
-      const reader = new FileReader();
-      console.log(reader);
-      reader.readAsDataURL(file);
-      reader.onloadend = () => {
-        setBlob(reader.result);
-      };
-    };
-
+  const [imgUploadMsg, setImgUploadMsg] = useState(null);
+  const [successMgs, setSuccessMgs] = useState(null);
+  const [file, setFile] = useState(null);
 
   const RegisterMutation = useMutation({
     mutationFn: async (data) => {
-      return wretch("https://udhamini-api.azurewebsites.net/api/users/register")
-        .post(data)
-        .res(response => { window.location.replace(`/login`); })
-        .catch(error => { setError(error) && setTimeout(() => setError(false), 3000) })
+      wretch(`${DeployedURL}/users/register`)
+        .post(data).json()
+        .then((data) => {
+          setSuccessMgs(data);
+          setTimeout(() => setSuccessMgs(false), 4000);
+        })
+        .catch(error => { setError(error); setTimeout(() => setError(false), 3000); })
     }
   })
 
   const onSubmit = async (data) => {
+    if (file) {
+      const filename = Date.now() + file.name;
+      const formData = new FormData();
+      formData.append("name", filename);
+      formData.append("file", file);
+      data.photo = filename;
+      // console.log(file);
+      axios.post(`${DeployedURL}/upload`, formData)
+        .then(response => { setImgUploadMsg(response?.data) })
+        .catch(error => { console.log(error.message) })
+    }
+
     RegisterMutation.mutate(data);
   };
   return (
@@ -43,12 +48,20 @@ function Register() {
           (
             <ThreeDots stroke="#98ff98" strokeOpacity={.125} speed={.75} />
           ) : (
-            error && (
+            error ? (
               <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
                 <div><span className='text-2xl'>😒</span>
                   <span>Error! {error?.message}</span>
                 </div>
               </div >
+            ) : (
+              successMgs && (
+                <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
+                  <div><span className='text-2xl'>😁</span>
+                    <span>User registered Successfully</span>
+                  </div>
+                </div>
+              )
             )
           )
       }
@@ -87,16 +100,19 @@ function Register() {
                         image ? (
                           <img
                             className="cursor-pointer"
-                            src={image}
-                            alt="invalid Imagefile😒"
+                            src={URL.createObjectURL(file)}
+                            alt="invalid ImageFile😒"
                           />
                         ) : (
                           <img className='cursor-pointer' src={imagePlaceholder} alt="nopic" />
                         )
                       }
                     </label>
-                    <input type="file"  {...register('fileInput')} id='fileInput'  style={{ display: "none" }} onChange={convertToBlob} /> 
+                    <input type="file" id="fileInput" style={{ display: "none" }} onChange={(e) => setFile(e.target.files[0])} />
                   </div>
+                  <label htmlFor="">{imgUploadMsg}</label>
+
+
                 </div>
               </div>
               <div className="card-body md:flex-row sm:flex-col lg:flex-row">

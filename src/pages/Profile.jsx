@@ -7,7 +7,7 @@ import { useMutation } from "@tanstack/react-query";
 import { ThreeDots } from "react-loading-icons";
 import wretch from "wretch";
 import "../index.css";
-import userpic from "../images/kevin.png";
+import { DeployedURL, PF } from '../components/Constants';
 
 function Profile() {
   const { user } = useContext(Context);
@@ -17,10 +17,9 @@ function Profile() {
   const [profileToggle, setProfileToggle] = useState(false);
   const [successMsg, setSuccessMsg] = useState(false);
   const [error, setError] = useState(false);
-
   const updateRegisterMutation = useMutation({
     mutationFn: async (data) => {
-      return wretch(`https://udhamini-api.azurewebsites.net/api/users/update/${user._id}`)
+      return wretch(`${DeployedURL}/users/update/${user._id}`)
         .headers({ token: `Bearer ${authToken}` })
         .put(data)
         .json()
@@ -259,9 +258,9 @@ function Profile() {
           <>
             <div className="avatar bg-base-100 rounded-box p-2 mt-2">
               <div className="w-3/4 mask mask-hexagon grid mx-auto">
-                {user.profilepic ? (
+                {user.photo ? (
                   <img
-                    src={userpic}
+                    src={PF + user.photo}
                     className="w-full h-full object-cover"
                     alt="no pic"
                   />
