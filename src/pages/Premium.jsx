@@ -7,13 +7,14 @@ import ScholarshipCard from "../components/ScholarshipCard";
 import logo from '../images/logo.jpg'
 import wretch from "wretch";
 import { Link } from "react-router-dom";
+import { DeployedURL } from '../components/Constants';
 
 function Premium() {
     const { user } = useContext(Context);
     const authToken = user?.accessToken;
 
     const { data: myData, isLoading, error } = useQuery(["PremiumScholarships"], () =>
-        wretch("https://udhamini-api.azurewebsites.net/api/scholarship/premium")
+        wretch(`${DeployedURL}/scholarship/premium`)
             .headers({ token: `Bearer ${authToken}` })
             .post({ premium_tier: user.premium_tier_available })
             .json()
@@ -22,7 +23,7 @@ function Premium() {
     );
 
     return (
-        <div className="flex flex-row mt-60px h-fit  bg-base-200 ">
+        <div className="flex flex-row mt-60px h-full  bg-base-200 ">
             <UserProfileSidebar />
             <main className="container  grid md:grid-cols-3 sm:grid-cols-1 gap-5 justify-center items-center h-full mx-2 mb-3">
                 {isLoading && (

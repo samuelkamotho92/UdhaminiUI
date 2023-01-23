@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { SpinningCircles } from "react-loading-icons";
 import AdminProfileSidebar from "../components/AdminProfileSidebar";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
+import { DeployedURL } from '../components/Constants';
 
 function AllScholarship() {
   const { id } = useParams();
@@ -14,7 +15,7 @@ function AllScholarship() {
     ["oneScholarships"],
     () =>
       axios.post(
-        "https://udhamini-api.azurewebsites.net/api/scholarship/oneNonPremium",
+        `${DeployedURL}/scholarship/oneNonPremium`,
         {
           id: id,
         }
