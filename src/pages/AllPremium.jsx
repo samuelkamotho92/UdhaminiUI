@@ -7,22 +7,20 @@ import { useQuery } from "@tanstack/react-query";
 import { SpinningCircles } from "react-loading-icons";
 import AdminProfileSidebar from "../components/AdminProfileSidebar";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
+import { DeployedURL } from '../components/Constants';
 
 function AllPremium() {
-  const { register, formState: { errors }, handleSubmit, setValues } = useForm();
-  const onSubmit = (data) => console.log(data);
-  const { user } = useContext(Context);
-  const authToken = user?.accessToken;
-  const [formData, setFormData] = useState(null);
-
-  const { data: myData, isLoading, error } = useQuery(["AllPremium"], () =>
-    wretch("https://udhamini-api.azurewebsites.net/api/scholarship/premium")
-      .headers({ token: `Bearer ${authToken}` })
-      .post({ premium_tier: true })
-      .json()
-      .then((data) => { return data; })
-      .catch((error) => { return error; }), { retry: false }
-
+  const { id } = useParams();
+  const { data, isLoading, error } = useQuery(
+    ["oneScholarships"],
+    () =>
+      axios.post(
+        `${DeployedURL}/scholarship/oneNonPremium`,
+        {
+          id: id,
+        }
+      ),
+    { retry: false }
   );
 
   return (

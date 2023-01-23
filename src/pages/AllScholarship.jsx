@@ -8,15 +8,20 @@ import { useQuery } from "@tanstack/react-query";
 import { SpinningCircles } from "react-loading-icons";
 import AdminProfileSidebar from "../components/AdminProfileSidebar";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
+import { DeployedURL } from '../components/Constants';
 
 function AllScholarship() {
-  const { user } = useContext(Context);
-  const { data: myData, isLoading, error } = useQuery(["AllScholarships"], () =>
-    wretch("https://udhamini-api.azurewebsites.net/api/scholarship/nonPremium")
-      .get()
-      .json()
-      .then((data) => { return data; })
-      .catch((error) => { return error; }), { retry: false }
+  const { id } = useParams();
+  const { data, isLoading, error } = useQuery(
+    ["oneScholarships"],
+    () =>
+      axios.post(
+        `${DeployedURL}/scholarship/oneNonPremium`,
+        {
+          id: id,
+        }
+      ),
+    { retry: false }
   );
   return (
     <div className="flex flex-row  md:h-full bg-base-200 ">

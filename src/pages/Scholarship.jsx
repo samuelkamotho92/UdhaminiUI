@@ -1,15 +1,22 @@
 import React from 'react'
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import scholar2 from '../images/scholar2.jpg'
 import UserProfileSidebar from '../components/UserProfileSidebar';
 import { useQuery } from "@tanstack/react-query";
 import { SpinningCircles } from 'react-loading-icons'
+import { DeployedURL } from '../components/Constants';
 
 function Scholarship() {
+    const navigate = useNavigate();
+    //open a hyperlink on another page
+
+    const redirect = (link) => {
+        window.open(`${link}`, "_blank");
+    }
     const { id } = useParams();
     const { data, isLoading, error } = useQuery(["oneScholarships"], () =>
-        axios.post("https://udhamini-api.azurewebsites.net/api/scholarship/oneNonPremium", {
+        axios.post(`${DeployedURL}/scholarship/oneNonPremium`, {
             id: id
         }), { retry: false });
     const scholarshipData = data?.data[0];
@@ -33,14 +40,15 @@ function Scholarship() {
                                         <p>👉Origin-Country : {scholarshipData?.origin_country}</p>
                                         <p>👉Deadline : {scholarshipData?.deadline_day}</p>
                                     </div>
-                                    <a href={scholarshipData?.link} className="btn btn-primary">Application Form Link</a>
+                                    <button className="btn btn-primary" onClick={() => redirect(scholarshipData?.link)} >Visit Application Page</button>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
+            </main >
+        </div >
     )
 }
 

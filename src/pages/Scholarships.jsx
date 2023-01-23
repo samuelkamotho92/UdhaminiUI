@@ -5,12 +5,12 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import ScholarshipCard from '../components/ScholarshipCard';
 import { SpinningCircles } from 'react-loading-icons'
-
+import { DeployedURL } from '../components/Constants';
 
 function Scholarships() {
     const { user } = useContext(Context);
     const { data, isLoading, error } = useQuery(["scholarships"], () =>
-        axios.get("https://udhamini-api.azurewebsites.net/api/scholarship/nonPremium"), { retry: false });
+        axios.get(`${DeployedURL}/scholarship/nonPremium`), { retry: false });
 
 
     if (error) return <div>{error}</div>;
