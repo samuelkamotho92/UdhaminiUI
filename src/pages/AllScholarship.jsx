@@ -1,5 +1,6 @@
-import React from "react";
-import axios from "axios";
+import React, { useContext } from "react";
+import wretch from "wretch";
+import { Context } from "../context/Context";
 import { Link, useParams } from "react-router-dom";
 import scholar2 from "../images/scholar2.jpg";
 import UserProfileSidebar from "../components/UserProfileSidebar";
@@ -9,19 +10,14 @@ import AdminProfileSidebar from "../components/AdminProfileSidebar";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 
 function AllScholarship() {
-  const { id } = useParams();
-  const { data, isLoading, error } = useQuery(
-    ["oneScholarships"],
-    () =>
-      axios.post(
-        "https://udhamini-api.azurewebsites.net/api/scholarship/oneNonPremium",
-        {
-          id: id,
-        }
-      ),
-    { retry: false }
+  const { user } = useContext(Context);
+  const { data: myData, isLoading, error } = useQuery(["AllScholarships"], () =>
+    wretch("https://udhamini-api.azurewebsites.net/api/scholarship/nonPremium")
+      .get()
+      .json()
+      .then((data) => { return data; })
+      .catch((error) => { return error; }), { retry: false }
   );
-  const scholarshipData = data?.data[0];
   return (
     <div className="flex flex-row  md:h-full bg-base-200 ">
       <AdminProfileSidebar />
@@ -37,9 +33,9 @@ function AllScholarship() {
           <table className="table table-responsive w-full">
             <thead>
               <tr>
-                <th></th>
                 <th>Name</th>
                 <th>Study Level</th>
+                <th>Amount</th>
                 <th>Link</th>
                 <th>location</th>
                 <th>Deadline</th>
@@ -47,102 +43,24 @@ function AllScholarship() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Littel, Schaden and Vandervort</td>
-                <td>Canada</td>
-                <td>12/16/2020</td>
-                <td>
-                  <Link>
-                    <FaPencilAlt />
-                  </Link>
-                  <Link>
-                    <FaTrashAlt />
-                  </Link>
-                </td>
-              </tr>
-              <tr>
-                <th>2</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Littel, Schaden and Vandervort</td>
-                <td>Canada</td>
-                <td>12/16/2020</td>
-                <td>
-                  <Link>
-                    <FaPencilAlt />
-                  </Link>
-                  <Link>
-                    <FaTrashAlt />
-                  </Link>
-                </td>
-              </tr>
-              <tr>
-                <th>3</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Littel, Schaden and Vandervort</td>
-                <td>Canada</td>
-                <td>12/16/2020</td>
-                <td>
-                  <Link>
-                    <FaPencilAlt />
-                  </Link>
-                  <Link>
-                    <FaTrashAlt />
-                  </Link>
-                </td>
-              </tr>
-              <tr>
-                <th>4</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Littel, Schaden and Vandervort</td>
-                <td>Canada</td>
-                <td>12/16/2020</td>
-                <td>
-                  <Link>
-                    <FaPencilAlt />
-                  </Link>
-                  <Link>
-                    <FaTrashAlt />
-                  </Link>
-                </td>
-              </tr>
-              <tr>
-                <th>5</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Littel, Schaden and Vandervort</td>
-                <td>Canada</td>
-                <td>12/16/2020</td>
-                <td>
-                  <Link>
-                    <FaPencilAlt />
-                  </Link>
-                  <Link>
-                    <FaTrashAlt />
-                  </Link>
-                </td>
-              </tr>
-              <tr>
-                <th>6</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Littel, Schaden and Vandervort</td>
-                <td>Canada</td>
-                <td>12/16/2020</td>
-                <td>
-                  <Link>
-                    <FaPencilAlt />
-                  </Link>
-                  <Link>
-                    <FaTrashAlt />
-                  </Link>
-                </td>
-              </tr>
+              {myData?.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.name}</td>
+                  <td>{item.study_level}</td>
+                  <td>{item.amount}</td>
+                  <td>{item.link}</td>
+                  <td>{item.origin_country}</td>
+                  <td>{item.deadline_day}</td>
+                  <td >
+                    <Link>
+                      <FaPencilAlt />
+                    </Link>
+                    <Link>
+                      <FaTrashAlt />
+                    </Link>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
