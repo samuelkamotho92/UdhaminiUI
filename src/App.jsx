@@ -26,12 +26,12 @@ import PremiumScholarshipCard from './components/PremiumScholarshipCard';
 
 function App() {
   const { user } = useContext(Context);
-  const loginClient = new QueryClient();
+  const queryClient = new QueryClient()
   return (
     <BrowserRouter>
       <div className="flex flex-col justify-between h-screen">
         <Header />
-        <QueryClientProvider client={loginClient}>
+        <QueryClientProvider client={queryClient}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="register" element={<Register />} />

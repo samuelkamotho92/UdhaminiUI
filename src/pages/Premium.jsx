@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UserProfileSidebar from "../components/UserProfileSidebar";
 import { Context } from "../context/Context";
 import { SpinningCircles } from "react-loading-icons";
@@ -23,9 +23,9 @@ function Premium() {
     );
 
     return (
-        <div className="flex flex-row mt-60px h-full  bg-base-200 ">
+        <div className="flex flex-row mt-60px md:h-full bg-base-200 ">
             <UserProfileSidebar />
-            <main className="container  grid md:grid-cols-3 sm:grid-cols-1 gap-5 justify-center items-center h-full mx-2 mb-3">
+            <main className="container  grid md:grid-cols-3 sm:grid-cols-1 gap-5 justify-center items-center h-fit mx-2 mb-3">
                 {isLoading && (
                     <SpinningCircles
                         stroke="#98ff98"
@@ -35,28 +35,27 @@ function Premium() {
                 )}
                 {
                     myData?.status ? (
-                        <>
-                            <div className="mockup-code md:w-1/2 md:ml-auto mx-auto ">
-                                <pre data-prefix="😊" className="bg-info text-info-content">
-                                    <code>Hello! Welcome..</code>
-                                </pre>
-                                <pre data-prefix="1" className="bg-warning text-warning-content">
-                                    <code>{myData?.message}</code>
-                                </pre>
+                        <div className="mockup-code w-fit">
+                            <pre data-prefix="😊" className="bg-info text-info-content">
+                                <code>Hello! Welcome..</code>
+                            </pre>
+                            <pre data-prefix="🎇" className=" text-sm ">
+                                <code className="text-info">{myData?.message}</code>
+                            </pre>
+                            <pre data-prefix=">" className="text-warning text-wrap">
+                                <code>Upgrade your account...</code>
+                            </pre>
+                            <pre data-prefix=">" className="text-warning text-wrap">
+                                <code>to view Premium Scholarships</code>
+                            </pre>
+                            <pre data-prefix=">" className="text-success">
+                                <code>
+                                    <Link className="btn btn-outline btn-sm mt-2 btn-accent" to="/profile/pay"> Upgrade Your </Link>
 
-                                <pre data-prefix=">" className="text-warning">
-                                    <code>click the button below to upgrade your tier...</code>
-                                </pre>
-                                <pre data-prefix=">" className="text-success">
-                                    <code>
-                                        <Link className="btn btn-outline btn-sm mt-2 btn-accent" to="/profile/pay"> Upgrade Your </Link>
+                                </code>
 
-                                    </code>
-
-                                </pre>
-                            </div>
-
-                        </>
+                            </pre>
+                        </div>
                     ) : (
                         <>
                             {

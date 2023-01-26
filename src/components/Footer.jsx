@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function Footer() {
   const footerYear = new Date().getFullYear();
   return (
@@ -21,7 +22,7 @@ function Footer() {
       <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end footerIcon">
         <a href="#">
           <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://twitter.com/_scoreMore"
             width="24"
             height="24"
             viewBox="0 0 24 24"

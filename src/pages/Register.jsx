@@ -28,14 +28,17 @@ function Register() {
 
   const onSubmit = async (data) => {
     if (file) {
-      const filename = Date.now() + file.name;
-      const formData = new FormData();
+      let filename = Date.now() + file.name;
+      let formData = new FormData();
       formData.append("name", filename);
       formData.append("file", file);
       data.photo = filename;
       // console.log(file);
       axios.post(`${DeployedURL}/upload`, formData)
-        .then(response => { setImgUploadMsg(response?.data) })
+        .then(response => {
+          setImgUploadMsg(response?.data);
+          formData = null;
+        })
         .catch(error => { console.log(error.message) })
     }
 
@@ -81,12 +84,8 @@ function Register() {
                   <input {...register("password", { required: true })} type="password" placeholder="Enter password**" className="input input-bordered input-md w-full max-w-xs" />
                   {errors.password?.type === 'required' && <p className="label-text-alt text-red-400 pt-2">password is required😶</p>}
                   <label className="label"><span className="label-text">Country of residence</span></label>
-                  <select {...register("country", { required: true })} className="select select-bordered w-full max-w-xs">
-                    <option selected disabled value="">Select country of residence</option>
-                    <option value="kenya">Kenya</option>
-                    <option value="uganda">Uganda</option>
-                    <option value="tanzania">Tanzania</option>
-                  </select>
+                  <input {...register("country", { required: true })} type="text" placeholder="Enter your Country" className="input input-bordered input-md w-full max-w-xs" />
+
                   {errors.country?.type === 'required' && <p className="label-text-alt text-red-400 pt-2">country is required😶</p>}
                 </div>
               </div>

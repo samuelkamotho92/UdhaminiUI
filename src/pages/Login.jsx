@@ -4,7 +4,7 @@ import login from "../images/Login.png";
 import { useMutation } from '@tanstack/react-query';
 import wretch from 'wretch';
 import { Context } from '../context/Context';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ThreeDots } from 'react-loading-icons'
 import { DeployedURL } from '../components/Constants';
 
@@ -13,6 +13,7 @@ function Login() {
   const { register, formState: { errors }, handleSubmit } = useForm();
   const [error, setError] = useState(false);
   const { dispatch } = useContext(Context);
+  const navigate = useNavigate();
 
   const loginMutation = useMutation({
     mutationFn: async (data) => {
@@ -22,9 +23,8 @@ function Login() {
         .then((data) => {
           if (data.accessToken) {
             dispatch({ type: 'LOGIN_SUCCESS', payload: data });
-            window.location.replace(`/profile`);
+            navigate("/profile");
           }
-          console.log(data)
         })
         .catch(error => {
           dispatch({ type: 'LOGIN_FAILURE' });

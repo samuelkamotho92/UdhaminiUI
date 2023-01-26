@@ -2,11 +2,10 @@ import { useContext } from 'react';
 import imagePlaceholder from '../images/placeholder.png';
 import { Context } from '../context/Context';
 import AdminProfileSidebar from '../components/AdminProfileSidebar';
+import { DeployedURL, PF } from '../components/Constants';
 
 function AdminProfile() {
-  const PF = "https://udhaminiapi.azurewebsites.net/images/";
   const { user } = useContext(Context);
-
 
   return (
     <div className='flex flex-row mt-60px md:h-full bg-base-200 '>
@@ -14,13 +13,14 @@ function AdminProfile() {
       <main className='container  grid md:grid-cols-3 sm:grid-cols-1 gap-5 justify-center items-center md:h-full sm:h-full mx-2 mb-3'>
         <div className="avatar ">
           <div className="w-3/4 mask mask-hexagon grid mx-auto">
-            {
-              user.profilepic ? (
-                <img src={PF + user?.profilepic} className="w-full h-full object-cover" alt='no pic' />
-              ) : (
-                <img className='place-self-center' src={imagePlaceholder} alt='no pic' />
-              )
-            }
+            {user.photo ? (
+              <img src={PF + user.photo} className="w-full h-full object-cover" alt="no pic" />
+            ) : (
+              <img className="place-self-center" src={imagePlaceholder} alt="no pic" />
+            )}
+            <div>
+              <button className="btn btn-accent">Edit Profile</button>
+            </div>
 
           </div>
         </div>

@@ -31,7 +31,7 @@ function Pay() {
     }
 
     return (
-        <div>
+        <div className='flex justify-center'>
             <StripeCheckout
                 name='udhamini'
                 image={logo}
@@ -42,7 +42,7 @@ function Pay() {
                 token={onToken}
                 stripeKey={KEY}
             >
-                <button className='btn btn-info '>Pay</button>
+                <button className='btn btn-info btn-outline'>Pay $20 to upgrade to Premium Tier</button>
             </StripeCheckout>
         </div>
     )

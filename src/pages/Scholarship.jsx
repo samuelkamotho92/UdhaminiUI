@@ -1,15 +1,14 @@
 import React from 'react'
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import scholar2 from '../images/scholar2.jpg'
 import UserProfileSidebar from '../components/UserProfileSidebar';
 import { useQuery } from "@tanstack/react-query";
 import { SpinningCircles } from 'react-loading-icons'
 import { DeployedURL } from '../components/Constants';
+import { PF } from '../components/Constants';
 
 function Scholarship() {
-    const navigate = useNavigate();
-    //open a hyperlink on another page
 
     const redirect = (link) => {
         window.open(`${link}`, "_blank");
@@ -31,7 +30,11 @@ function Scholarship() {
                     <div className="flex justify-center px-4 py-16 bg-base-200">
                         <div className="hero  bg-base-200">
                             <div className="hero-content flex-col lg:flex-row">
-                                <img src={scholar2} className="max-w-lg rounded-lg shadow-2xl" />
+                                {scholarshipData?.photo ? (
+                                    <img src={PF + scholarshipData?.photo} className="w-1/2 rounded h-full object-cover" alt="no pic" />
+                                ) : (
+                                    <img className="place-self-center w-1/2 rounded" src={scholar2} alt="no pic" />
+                                )}
                                 <div>
                                     <h1 className="text-5xl uppercase font-bold">{scholarshipData?.name}</h1>
                                     <div className="badge badge-secondary badge-lg my-2 text-xl">Scolarship Amount :{scholarshipData?.amount}</div>

@@ -15,7 +15,7 @@ function Scholarships() {
 
     if (error) return <div>{error}</div>;
     return (
-        <div className='flex flex-row mt-60px md:h-fit bg-base-200 '>
+        <div className='flex flex-row mt-60px md:h-fit lg:h-full bg-base-200 '>
             <UserProfileSidebar />
             <main className='container  grid md:grid-cols-3 sm:grid-cols-1 gap-5 justify-center items-center md:h-full sm:h-full mx-2 mb-3'>
                 {

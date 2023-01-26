@@ -1,12 +1,14 @@
 import { useContext } from 'react'
-import { FaHome, FaPencilAlt, FaSignInAlt, FaUser, FaCogs, FaUserAltSlash, FaMoneyCheck, FaMoneyCheckAlt } from 'react-icons/fa';
+import { FaHome, FaPencilAlt, FaSignInAlt, FaUser, FaReadme, FaUserAltSlash, FaUsers, FaShopify, FaPlusSquare } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import { Context } from '../context/Context';
+import { useNavigate } from "react-router-dom"
 function Header() {
   const { user, dispatch } = useContext(Context);
+  const navigate = useNavigate();
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
-    window.location.replace("/")
+    navigate("/");
   }
   return (
     <div className="navbar bg-base-300 ">
@@ -23,9 +25,17 @@ function Header() {
             {
               user ? (
                 <>
-                  <li><Link to="/profile/"><FaUser className="text-xl" />Profile</Link></li>
-                  <li><Link to={`/profile/scholarships`}><FaMoneyCheck className="text-xl" /> Scholarships</Link></li>
-                  <li><Link to={`/profile/premium`}><FaMoneyCheckAlt className="text-lg" />Premium</Link></li>
+                  {
+                    user.isAdmin === true ? (
+                      <li><Link to="/adminprofile/"><FaUser className="text-xl" />Profile</Link></li>
+                    ) : (
+                      <li><Link to="/profile/"><FaUser className="text-xl" />Profile</Link></li>
+                    )
+                  }
+                  <li><Link to={`/admin/allscholarships`}><FaReadme />Non-Premiums</Link></li>
+                  <li><Link to={`/admin/all-premium-tier`}><FaShopify />Premiums</Link></li>
+                  <li><Link to={`/admin/users`}><FaUsers /> Users</Link></li>
+                  <li><Link to={`/admin/addscholarships`}><FaPlusSquare /> Add Scholarship</Link></li>
                   <li><a href='#' onClick={handleLogout}><FaUserAltSlash className="text-xl" />Logout</a></li>
                 </>
               ) : (
@@ -52,8 +62,13 @@ function Header() {
           {
             user ? (
               <>
-                <li><Link to="/profile/" className="justify-between"><FaUser className="rounded-full text-xl" />Profile</Link></li>
-
+                {
+                  user.isAdmin === true ? (
+                    <li><Link to="/adminprofile/" className="justify-between"><FaUser className="rounded-full text-xl" />Profile</Link></li>
+                  ) : (
+                    <li><Link to="/profile/" className="justify-between"><FaUser className="rounded-full text-xl" />Profile</Link></li>
+                  )
+                }
                 <li><a href='#' onClick={handleLogout}><FaUserAltSlash className="rounded-full text-xl" />Logout</a></li>
               </>
             ) : (
