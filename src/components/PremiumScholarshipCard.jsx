@@ -10,7 +10,7 @@ import wretch from 'wretch';
 function PremiumScholarshipCard() {
     const { id } = useParams();
     const { user } = useContext(Context);
-
+    const redirect = (link) => { window.open(`${link}`, "_blank"); }
 
     const { data: FetchedPremiumData, isLoading, error } = useQuery(["OnePremiumScholarships"], () =>
         wretch(`https://udhamini-api.azurewebsites.net/api/scholarship/onePremium/${id}`)
@@ -41,7 +41,7 @@ function PremiumScholarshipCard() {
                                         <p>👉Origin-Country : {premiumData?.origin_country}</p>
                                         <p>👉Deadline : {premiumData?.deadline_day}</p>
                                     </div>
-                                    <a href={premiumData?.link} className="btn btn-primary">Application Form Link</a>
+                                    <button className="btn btn-primary" onClick={() => redirect(premiumData?.link)} >Visit Application Page</button>
                                 </div>
                             </div>
                         </div>

@@ -10,12 +10,7 @@ import { PF } from '../components/Constants';
 
 function Scholarship() {
 
-    const redirect = (link) => {
-        let currentUrl = window.location.href; // Get the current URL
-        let newUrl = currentUrl.split("/").pop(); // Split the URL by "/" and get the last part
-        window.location.assign(newUrl);
-
-    }
+    const redirect = (link) => { window.open(`${link}`, "_blank"); }
     const { id } = useParams();
     const { data, isLoading, error } = useQuery(["oneScholarships"], () =>
         axios.post(`${DeployedURL}/scholarship/oneNonPremium`, {
