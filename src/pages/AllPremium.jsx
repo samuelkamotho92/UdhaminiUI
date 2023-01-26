@@ -80,7 +80,7 @@ function AllPremium() {
               strokeOpacity={0.125}
               speed={0.75}
             />
-          ) : (UpdateScholarshipMutation.isLoading ?
+          ) : (UpdateScholarshipMutation.isLoading || DeleteScholarshipMutation.isLoading ?
             (
               <ThreeDots stroke="#98ff98" strokeOpacity={.125} speed={.75} />
             ) : (

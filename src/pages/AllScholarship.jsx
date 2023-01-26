@@ -78,7 +78,7 @@ function AllScholarship() {
         <AdminProfileSidebar />
         <main className="container mx-3 my-3 justify-center items-center h-full ">
           {
-            DeleteScholarshipMutation.isLoading ?
+            UpdateScholarshipMutation.isLoading || DeleteScholarshipMutation.isLoading ?
               (
                 <ThreeDots stroke="#98ff98" strokeOpacity={.125} speed={.75} />
               ) : (

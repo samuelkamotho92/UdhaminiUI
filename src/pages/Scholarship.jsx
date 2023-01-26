@@ -11,7 +11,10 @@ import { PF } from '../components/Constants';
 function Scholarship() {
 
     const redirect = (link) => {
-        window.open(`${link}`, "_blank");
+        let currentUrl = window.location.href; // Get the current URL
+        let newUrl = currentUrl.split("/").pop(); // Split the URL by "/" and get the last part
+        window.location.assign(newUrl);
+
     }
     const { id } = useParams();
     const { data, isLoading, error } = useQuery(["oneScholarships"], () =>
@@ -44,7 +47,6 @@ function Scholarship() {
                                         <p>👉Deadline : {scholarshipData?.deadline_day}</p>
                                     </div>
                                     <button className="btn btn-primary" onClick={() => redirect(scholarshipData?.link)} >Visit Application Page</button>
-
                                 </div>
                             </div>
                         </div>

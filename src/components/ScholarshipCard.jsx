@@ -15,7 +15,7 @@ function ScholarshipCard({ data }) {
             <div className="card-body">
                 <h2 className="card-title">
                     {data?.name}
-                    <div className="badge badge-secondary max-w-fit">{data?.amount}</div>
+                    <div className="badge badge-secondary w-full">{data?.amount}</div>
                 </h2>
                 <p>Deadline : {data?.deadline_day}</p>
                 <div className="card-actions justify-end">
