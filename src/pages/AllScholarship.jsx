@@ -74,7 +74,7 @@ function AllScholarship() {
   }
   return (
     <>
-      <div className="flex flex-row  md:h-full bg-base-200 ">
+      <div className="flex flex-row  md:h-fit bg-base-200 ">
         <AdminProfileSidebar />
         <main className="container mx-3 my-3 justify-center items-center h-full ">
           {
