@@ -1,12 +1,12 @@
 import { useState, useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { Context } from '../context/Context';
-import login from "../images/Login.png";
 import background from "../images/background.jpg";
 import { useMutation } from '@tanstack/react-query';
 import { Link, useNavigate } from 'react-router-dom';
 import wretch from 'wretch';
-import { DeployedURL, PF } from '../components/Constants';
+import { DeployedURL } from '../components/Constants';
+import { ThreeDots } from 'react-loading-icons'
 
 
 
@@ -44,9 +44,24 @@ function AdminLogin() {
 
     <div className="hero h-fit" >
       <img className="h-screen w-full" src={background} alt="" />
-      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-overlay bg-opacity-60">
+        {
+          AdminLoginMutation.isLoading ?
+            (<ThreeDots stroke="#98ff98" strokeOpacity={.125} speed={.75} />) : (
+              error && (
+                <div className="alert alert-error mt-60px shadow-lg w-fit z-50 text-center text-white absolute top-0 right-0" >
+                  <div><span className='text-2xl'>😒</span>
+                    <span>Error! Wrong credentials</span>
+                  </div>
+                </div >
+              )
+            )
+
+        }
+      </div>
       <div className="hero-content ">
-        < div className="card flex-shrink-0 w-full  p-2  place-self-center" >
+
+        <div className="card flex-shrink-0 w-full  p-2  place-self-center" >
           <div className="card-header">
             <h1 className="text-5xl font-bold  px-2  text-center">Admin 🔐</h1>
           </div>

@@ -19,24 +19,29 @@ function Header() {
           </label>
           <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40">
             <li><Link className='my-0' to="/"><FaHome className="text-xl" />Home</Link></li>
-            <li><Link to="/about"><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              About</Link></li>
-
             {
               user ? (
                 <>
                   {
                     user.isAdmin === true ? (
-                      <li><Link to="/adminprofile/"><FaUser className="text-xl" />Profile</Link></li>
+                      <>
+                        <li><Link to="/adminprofile/"><FaUser className="text-xl" />Profile</Link></li>
+                        <li><Link to={`/admin/users`}><FaUsers /> Users</Link></li>
+                        <li><Link to={`/admin/addscholarships`}><FaPlusSquare /> Add Scholarship</Link></li>
+                        <li><Link to={`/admin/allscholarships`}><FaReadme />Non-Premiums</Link></li>
+                        <li><Link to={`/admin/all-premium-tier`}><FaShopify />Premiums</Link></li>
+                      </>
                     ) : (
-                      <li><Link to="/profile/"><FaUser className="text-xl" />Profile</Link></li>
+                      <>
+                        <li><Link to="/profile/"><FaUser className="text-xl" />Profile</Link></li>
+                        <li><Link to="/profile/scholarships"><FaReadme />Non Premium</Link></li>
+                        <li><Link to="/profile/premium"><FaShopify />Premium Tier</Link></li>
+                      </>
                     )
                   }
-                  <li><Link to={`/admin/allscholarships`}><FaReadme />Non-Premiums</Link></li>
-                  <li><Link to={`/admin/all-premium-tier`}><FaShopify />Premiums</Link></li>
-                  <li><Link to={`/admin/users`}><FaUsers /> Users</Link></li>
-                  <li><Link to={`/admin/addscholarships`}><FaPlusSquare /> Add Scholarship</Link></li>
                   <li><a href='#' onClick={handleLogout}><FaUserAltSlash className="text-xl" />Logout</a></li>
+                  <li><Link to="/about"><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    About</Link></li>
                 </>
               ) : (
                 <>
